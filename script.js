@@ -39,7 +39,7 @@ function initializePage(data) {
 
   // === Funções de modal ===
   let lastFocusedElement;
-  
+
   function handleFocusTrap(e) {
     if (e.key !== 'Tab') return;
     const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
@@ -70,10 +70,10 @@ function initializePage(data) {
     modal.classList.remove('show');
     modal.removeEventListener('keydown', handleFocusTrap);
     setTimeout(() => {
-        modal.style.display = 'none';
-        if (lastFocusedElement) {
-            lastFocusedElement.focus();
-        }
+      modal.style.display = 'none';
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
     }, 300);
   }
 
@@ -81,9 +81,9 @@ function initializePage(data) {
     btn.addEventListener('click', () => {
       const biome = btn.closest('.card').dataset.biome;
       if (biomeDetails[biome]) {
-          modalText.innerHTML = `<h3 id="modalTitle">${biomeDetails[biome].title}</h3>${biomeDetails[biome].content}`;
+        modalText.innerHTML = `<h3 id="modalTitle">${biomeDetails[biome].title}</h3>${biomeDetails[biome].content}`;
       } else {
-          modalText.innerHTML = '<p>Detalhes indisponíveis.</p>';
+        modalText.innerHTML = '<p>Detalhes indisponíveis.</p>';
       }
       showModal(btn);
     });
@@ -94,30 +94,30 @@ function initializePage(data) {
     if (event.target === modal) closeModal();
   });
   window.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && modal.style.display === 'block') closeModal();
+    if (event.key === 'Escape' && modal.style.display === 'block') closeModal();
   });
 
   // === Menu Hambúrguer ===
   menuToggleBtn.addEventListener('click', () => {
-      const isExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
-      menuToggleBtn.setAttribute('aria-expanded', !isExpanded);
-      mainNav.classList.toggle('nav-open');
-      const icon = menuToggleBtn.querySelector('i');
-      if (mainNav.classList.contains('nav-open')) {
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-times');
-          menuToggleBtn.setAttribute('aria-label', 'Fechar menu');
-      } else {
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
-          menuToggleBtn.setAttribute('aria-label', 'Abrir menu');
-      }
+    const isExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
+    menuToggleBtn.setAttribute('aria-expanded', !isExpanded);
+    mainNav.classList.toggle('nav-open');
+    const icon = menuToggleBtn.querySelector('i');
+    if (mainNav.classList.contains('nav-open')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-times');
+      menuToggleBtn.setAttribute('aria-label', 'Fechar menu');
+    } else {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+      menuToggleBtn.setAttribute('aria-label', 'Abrir menu');
+    }
   });
 
   navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-          if (mainNav.classList.contains('nav-open')) menuToggleBtn.click();
-      });
+    link.addEventListener('click', () => {
+      if (mainNav.classList.contains('nav-open')) menuToggleBtn.click();
+    });
   });
 
   // === Função debounce ===
@@ -134,30 +134,30 @@ function initializePage(data) {
   let isHeaderHidden = false;
 
   function handleScroll() {
-      const currentY = window.pageYOffset;
-      if (currentY > 300) backToTopBtn.classList.add('show');
-      else backToTopBtn.classList.remove('show');
-      if (mainNav.classList.contains('nav-open')) {
-          showHeader();
-          return;
-      }
-      if (currentY < lastScrollY || currentY <= 50) showHeader();
-      else if (currentY > lastScrollY && currentY > header.offsetHeight && !isHeaderHidden) hideHeader();
-      lastScrollY = currentY <= 0 ? 0 : currentY;
+    const currentY = window.pageYOffset;
+    if (currentY > 300) backToTopBtn.classList.add('show');
+    else backToTopBtn.classList.remove('show');
+    if (mainNav.classList.contains('nav-open')) {
+      showHeader();
+      return;
+    }
+    if (currentY < lastScrollY || currentY <= 50) showHeader();
+    else if (currentY > lastScrollY && currentY > header.offsetHeight && !isHeaderHidden) hideHeader();
+    lastScrollY = currentY <= 0 ? 0 : currentY;
   }
 
   function showHeader() {
-      if (isHeaderHidden) {
-          header.style.transform = 'translateY(0)';
-          isHeaderHidden = false;
-      }
+    if (isHeaderHidden) {
+      header.style.transform = 'translateY(0)';
+      isHeaderHidden = false;
+    }
   }
 
   function hideHeader() {
-      if (!isHeaderHidden) {
-          header.style.transform = 'translateY(-100%)';
-          isHeaderHidden = true;
-      }
+    if (!isHeaderHidden) {
+      header.style.transform = 'translateY(-100%)';
+      isHeaderHidden = true;
+    }
   }
 
   window.addEventListener('scroll', debounce(handleScroll, 50));
@@ -167,10 +167,10 @@ function initializePage(data) {
     const distanceY = endY - startY;
     let startTime = null;
     const easeInOutCubic = (t, b, c, d) => {
-        t /= d / 2;
-        if (t < 1) return c / 2 * t * t * t + b;
-        t -= 2;
-        return c / 2 * (t * t * t + 2) + b;
+      t /= d / 2;
+      if (t < 1) return c / 2 * t * t * t + b;
+      t -= 2;
+      return c / 2 * (t * t * t + 2) + b;
     };
     const animation = (currentTime) => {
       if (startTime === null) startTime = currentTime;
@@ -183,8 +183,8 @@ function initializePage(data) {
   };
 
   backToTopBtn.addEventListener('click', (e) => {
-      e.preventDefault(); 
-      smoothScrollTo(0, 800);
+    e.preventDefault();
+    smoothScrollTo(0, 800);
   });
 
   document.addEventListener('mousemove', debounce(event => {
@@ -212,18 +212,18 @@ function initializePage(data) {
         maintainAspectRatio: true,
         // === MELHORIA (Item 10): Gráfico Interativo ===
         onClick: (event, elements) => {
-            if (elements.length > 0) {
-                const clickedElementIndex = elements[0].index;
-                const label = chartData.labels[clickedElementIndex];
-                const value = chartData.data[clickedElementIndex];
-                const info = chartData.moreInfo[clickedElementIndex];
-                alert(`${label} (${value}%):\n\n${info}`);
-            }
+          if (elements.length > 0) {
+            const clickedElementIndex = elements[0].index;
+            const label = chartData.labels[clickedElementIndex];
+            const value = chartData.data[clickedElementIndex];
+            const info = chartData.moreInfo[clickedElementIndex];
+            alert(`${label} (${value}%):\n\n${info}`);
+          }
         },
         plugins: {
           tooltip: {
             callbacks: {
-              label: function(context) {
+              label: function (context) {
                 const label = context.label || '';
                 const value = context.raw || 0;
                 return `${label}: ${value}%`;
