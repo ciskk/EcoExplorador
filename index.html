@@ -3,17 +3,23 @@
 
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECO EXPLORADOR</title>
+    
+    <meta name="description"
     content="Site educativo sobre a fauna e biodiversidade brasileira, com informações sobre ameaças ambientais e desenvolvimento sustentável.">
   <meta name="description"
     content="Site educativo sobre a fauna e biodiversidade brasileira, com informações sobre ameaças ambientais e desenvolvimento sustentável.">
-  <meta name="author" content="EcoExplorador">
-  <meta name="keywords" content="fauna, biodiversidade, biomas, meio ambiente, Brasil, sustentabilidade">
-  <meta name="theme-color" content="#4caf50">
-  <title>EcoExplorador - Biodiversidade Brasileira</title>
+    <meta name="author" content="EcoExplorador">
+    <meta name="keywords" content="fauna, biodiversidade, biomas, meio ambiente, Brasil, sustentabilidade, world environment day">
+    <meta name="theme-color" content="#F8F7F2">
 
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ecoexplorador.com.br/">
+    <meta property="og:title" content="World Environment Day - Org Environment">
+    <meta property="og:description" content="Um portal educativo sobre a rica biodiversidade, os biomas e os desafios ambientais do Brasil.">
+    <meta property="og:image" content="https://ecoexplorador.com.br/images/social-preview.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ecoexplorador.com.br/">
   <meta property="og:title" content="EcoExplorador - Biodiversidade Brasileira">
@@ -32,22 +38,206 @@
     content="Um portal educativo sobre a rica biodiversidade, os biomas e os desafios ambientais do Brasil.">
   <meta property="twitter:image" content="https://ecoexplorador.com.br/images/social-preview.jpg">
 
-  <link rel="icon" type="image/x-icon" href="logo.ico">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@300;600&display=swap"
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMU6h0GpKQz8Q+Xor6Ic1zH5oZ65+1XQ1vYQHA8" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@300;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMU6h0GpKQz8Q+Xor6Ic1zH5oZ65+1XQ1vYQHA8" crossorigin="anonymous">
-
+   >
   <link rel="stylesheet" href="style.css">
+
+    <!-- <style>
+        :root {
+            --bg-cream: #F8F7F2;
+            --text-dark: #2c2c2c;
+            --accent-green: #5A7D3A;
+            --banner-khaki: #D1CDB8;
+            --border-color: #E0E0E0;
+            --font-main: 'Poppins', sans-serif;
+        }
+
+        /* --- Reset e Estilos Gerais --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* --- Layout Principal (Tela Cheia) --- */
+        html, body {
+            height: 100%; /* Garante que o html e body ocupem a altura total */
+        }
+        
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-cream); /* Cor de fundo creme aplicada em toda a página */
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column; /* Estrutura para manter o rodapé embaixo */
+        }
+
+        /* O page-container agora é invisível, apenas estrutura o layout */
+        .page-container {
+            width: 100%;
+            flex-grow: 1; /* Faz o container principal crescer para ocupar o espaço */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* --- Container de Conteúdo Centralizado --- */
+        /* Esta nova classe centraliza o conteúdo dentro da tela cheia */
+        .content-wrapper {
+            width: 100%;
+            max-width: 1200px; /* Largura máxima para o conteúdo não ficar muito esticado */
+            margin: 0 auto;
+            padding: 0 40px; /* Espaçamento lateral */
+        }
+
+        /* --- Cabeçalho (Header) --- */
+        header {
+            border-bottom: 1px solid var(--border-color);
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+        }
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+        .header-logo i {
+            color: var(--accent-green);
+            font-size: 1.5rem;
+        }
+
+        #main-nav {
+            display: flex;
+            gap: 35px;
+        }
+        #main-nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        #main-nav a:hover {
+            color: var(--accent-green);
+        }
+
+        /* --- Seção Principal (Main) --- */
+        .main-content {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 0;
+        }
+
+        .hero-title span { display: block; text-transform: uppercase; }
+        .hero-title .line-1 { font-size: 1.5rem; font-weight: 500; letter-spacing: 2px; }
+        .hero-title .line-2 { font-size: 4.5rem; font-weight: 700; letter-spacing: 4px; margin-top: -15px; margin-bottom: 40px; }
+        
+        .central-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border: 2px solid var(--text-dark);
+            padding: 20px;
+            background-color: var(--banner-khaki);
+        }
+        
+        .central-image-container img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .date-banner {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--banner-khaki);
+            padding: 20px 40px;
+            width: 70%;
+            max-width: 500px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .date-banner h3 { font-size: 1.5rem; margin-bottom: 5px; }
+        .date-banner p { font-size: 0.8rem; }
+
+        .info-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 0 40px;
+        }
+        .social-links { text-align: left; }
+        .social-links .btn-dark {
+             display: inline-block;
+             background-color: var(--text-dark);
+             color: var(--bg-cream);
+             padding: 10px 25px;
+             text-decoration: none;
+             font-weight: 600;
+             font-size: 0.9rem;
+             border-radius: 5px;
+             margin-bottom: 15px;
+        }
+        .social-links p { font-weight: 500; font-size: 0.8rem; letter-spacing: 1px; }
+        
+        .quote { display: flex; align-items: center; gap: 15px; font-style: italic; font-size: 1.1rem; }
+        .quote i { font-size: 2.5rem; color: var(--accent-green); }
+
+        /* --- Rodapé --- */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 20px 0;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* --- Elementos do código original ocultos --- */
+        #biomeModal, #backToTopBtn, #menu-toggle { display: none; }
+        
+        /* --- Media Queries para Responsividade --- */
+        @media (max-width: 992px) {
+            .content-wrapper { padding: 0 20px; }
+            #main-nav { display: none; }
+            .hero-title .line-2 { font-size: 3rem; }
+            .central-image-container img { height: 300px; }
+            .date-banner { position: relative; bottom: 0; width: 90%; margin-top: 20px; transform: translateX(-50%); }
+            .info-section { flex-direction: column; gap: 40px; padding-top: 40px; text-align: center; }
+            .social-links { text-align: center; }
+            .quote { flex-direction: column; gap: 10px; }
+        }
+        @media (max-width: 576px) {
+            .hero-title .line-1 { font-size: 1.2rem; }
+            .hero-title .line-2 { font-size: 2.5rem; }
+            .central-image-container img { height: 250px; }
+        }
+
+    </style> -->
 </head>
-
-
-
 
 <body>
 
@@ -81,29 +271,20 @@
 
   </main>
 
-  <footer>
-    <p>&copy; 2025 Francisco Gustavo, Francisco Cândido, Noan Guedes &amp; Davi César</p>
-  </footer>
+        <footer>
+            <div class="content-wrapper">
+                <p>&copy; 2025 Francisco Gustavo, Francisco Cândido, Noan Guedes &amp; Davi César</p>
+            </div>
+        </footer>
 
-  <div id="biomeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalText">
-    <div class="modal-content">
-      <button type="button" class="close" aria-label="Fechar janela">&times;</button>
-      <div id="modalText"></div>
     </div>
-  </div>
 
-  <button id="backToTopBtn" title="Voltar ao Topo" aria-label="Voltar ao topo da página">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-      <path fill-rule="evenodd"
-        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
-      <path fill-rule="evenodd"
-        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
-    </svg>
-  </button>
-
-  <script src="chart.umd.js"></script>
-  <script src="chart.umd.js"></script>
-  <script src="script.js"></script>
+    <div id="biomeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalText" style="display: none;"></div>
+    <button id="backToTopBtn" title="Voltar ao Topo" aria-label="Voltar ao topo da página" style="display: none;"></button>
+    <button id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav" style="display: none;"></button>
+    
+    <script src="chart.umd.js"></script>
+    <script src="script.js"></script>
 </body>
 
 
