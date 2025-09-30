@@ -1,24 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
   // --- Efeito do Header Fixo ---
   const stickyHeader = document.getElementById("stickyHeader");
-  let lastScrollTop = 0;
-
-  window.addEventListener("scroll", () => {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop) {
-      // Rolando para baixo
-      stickyHeader.style.transform = "translateY(-100%)";
-    } else {
-      // Rolando para cima
-      stickyHeader.style.transform = "translateY(0)";
-    }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  });
+  // SÓ EXECUTA SE O HEADER EXISTIR NA PÁGINA
+  if (stickyHeader) {
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        // Rolando para baixo
+        stickyHeader.style.transform = "translateY(-100%)";
+      } else {
+        // Rolando para cima
+        stickyHeader.style.transform = "translateY(0)";
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+  }
 
   // --- Menu Hamburger para Telas Pequenas ---
   const menuToggle = document.getElementById("menu-toggle");
   const mainNav = document.getElementById("main-nav");
-
+  // SÓ EXECUTA SE O MENU EXISTIR
   if (menuToggle && mainNav) {
     menuToggle.addEventListener("click", () => {
       const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
@@ -43,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Botão "Voltar ao Topo" ---
   const backToTopBtn = document.getElementById("backToTopBtn");
+  // SÓ EXECUTA SE O BOTÃO EXISTIR NA PÁGINA
   if (backToTopBtn) {
-    // Adiciona o ícone SVG dinamicamente para acessibilidade
     backToTopBtn.innerHTML = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M12 4l-8 8h6v8h4v-8h6z"/>
@@ -118,9 +120,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  // SÓ EXECUTA SE HOUVER BOTÕES "ver-detalhes" NA PÁGINA
   if (verDetalhesButtons.length > 0) {
     fetch("../dados.json")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erro na rede: " + response.statusText);
+        }
+        return response.json();
+      })
       .then((data) => {
         const biomasData = data.biomeDetails;
         verDetalhesButtons.forEach((button) => {
@@ -133,8 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         });
       })
-      .catch((error) =>
-        console.error("Erro ao carregar dados dos biomas:", error)
-      );
+      .catch((error) => console.error("Erro ao carregar dados dos biomas:", error));
   }
 });
