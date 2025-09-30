@@ -1,41 +1,41 @@
-script.js
-// script.js
+  script.js
+  // script.js
 
-// Aguarda o DOM estar completamente carregado
-document.addEventListener('DOMContentLoaded', () => {
+  // Aguarda o DOM estar completamente carregado
+  document.addEventListener('DOMContentLoaded', () => {
 
-  // === MELHORIA (Item 9): Carrega dados de um arquivo JSON externo ===
-  fetch('dados.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Não foi possível carregar os dados.');
-      }
-      return response.json();
-    })
-    .then(data => {
-      // Toda a lógica que depende dos dados é executada aqui
-      initializePage(data);
-    })
-    .catch(error => {
-      console.error('Erro ao carregar o arquivo de dados:', error);
-      // Opcional: Exibir uma mensagem de erro para o usuário na página
-    });
+    // === MELHORIA (Item 9): Carrega dados de um arquivo JSON externo ===
+    fetch('dados.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Não foi possível carregar os dados.');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Toda a lógica que depende dos dados é executada aqui
+        initializePage(data);
+      })
+      .catch(error => {
+        console.error('Erro ao carregar o arquivo de dados:', error);
+        // Opcional: Exibir uma mensagem de erro para o usuário na página
+      });
 
-});
+  });
 
-function initializePage(data) {
-  const biomeDetails = data.biomeDetails;
+  function initializePage(data) {
+    const biomeDetails = data.biomeDetails;
 
-  // === Seleção de elementos do DOM ===
-  const buttons = document.querySelectorAll('.ver-detalhes');
-  const modal = document.getElementById('biomeModal');
-  const modalText = document.getElementById('modalText');
-  const closeModalBtn = modal.querySelector('.close');
-  const header = document.getElementById('stickyHeader');
-  const menuToggleBtn = document.getElementById('menu-toggle');
-  const mainNav = document.getElementById('main-nav');
-  const backToTopBtn = document.getElementById('backToTopBtn');
-  const navLinks = mainNav.querySelectorAll('a');
+    // === Seleção de elementos do DOM ===
+    const buttons = document.querySelectorAll('.ver-detalhes');
+    const modal = document.getElementById('biomeModal');
+    const modalText = document.getElementById('modalText');
+    const closeModalBtn = modal.querySelector('.close');
+    const header = document.getElementById('stickyHeader');
+    const menuToggleBtn = document.getElementById('menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    const navLinks = mainNav.querySelectorAll('a');
 
   // === Funções de modal ===
   let lastFocusedElement;
@@ -58,13 +58,13 @@ function initializePage(data) {
     }
   }
 
-  function showModal(button) {
-    lastFocusedElement = button;
-    modal.style.display = 'block';
-    setTimeout(() => modal.classList.add('show'), 10);
-    closeModalBtn.focus();
-    modal.addEventListener('keydown', handleFocusTrap);
-  }
+    function showModal(button) {
+      lastFocusedElement = button;
+      modal.style.display = 'block';
+      setTimeout(() => modal.classList.add('show'), 10);
+      closeModalBtn.focus();
+      modal.addEventListener('keydown', handleFocusTrap);
+    }
 
   function closeModal() {
     modal.classList.remove('show');
@@ -120,18 +120,18 @@ function initializePage(data) {
     });
   });
 
-  // === Função debounce ===
-  function debounce(fn, delay = 20) {
-    let timer;
-    return (...args) => {
-      clearTimeout(timer);
-      timer = setTimeout(() => fn(...args), delay);
-    };
-  }
+    // === Função debounce ===
+    function debounce(fn, delay = 20) {
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), delay);
+      };
+    }
 
-  // === Controle do cabeçalho e Botão Voltar ao Topo ===
-  let lastScrollY = window.pageYOffset;
-  let isHeaderHidden = false;
+    // === Controle do cabeçalho e Botão Voltar ao Topo ===
+    let lastScrollY = window.pageYOffset;
+    let isHeaderHidden = false;
 
   function handleScroll() {
     const currentY = window.pageYOffset;
@@ -160,7 +160,7 @@ function initializePage(data) {
     }
   }
 
-  window.addEventListener('scroll', debounce(handleScroll, 50));
+    window.addEventListener('scroll', debounce(handleScroll, 50));
 
   const smoothScrollTo = (endY, duration) => {
     const startY = window.pageYOffset;
@@ -187,9 +187,9 @@ function initializePage(data) {
     smoothScrollTo(0, 800);
   });
 
-  document.addEventListener('mousemove', debounce(event => {
-    if (!('ontouchstart' in window || navigator.msMaxTouchPoints) && event.clientY <= 5) showHeader();
-  }, 50));
+    document.addEventListener('mousemove', debounce(event => {
+      if (!('ontouchstart' in window || navigator.msMaxTouchPoints) && event.clientY <= 5) showHeader();
+    }, 50));
 
   // === Gráfico de Rosca de Vegetação Desmatada ===
   const ctx = document.getElementById('graficoPizza');
