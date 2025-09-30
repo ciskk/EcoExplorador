@@ -1,47 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../style.css">
-</head>
-
-<body>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gráfico de Vegetação - EcoExplorador</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
     <main class="container">
-        <section id="grafico-vegetacao">
-            <h2>Gráfico de Rosca: Proporção dos Tipos de Vegetação Desmatados</h2>
-            <div class="chart-container">
-                <canvas id="graficoPizza"
-                    aria-label="Gráfico de rosca sobre a proporção de tipos de vegetação desmatada após 31 de Dezembro de 2020"
-                    role="img"></canvas>
-            </div>
-            <p class="source">
-                Proporção dos tipos de vegetação nativa desmatados após 31 de Dezembro de 2020.<br>
-                <strong>57,3%</strong> Formações florestais<br>
-                <strong>38,5%</strong> Formações savânicas<br>
-                <strong>4,2%</strong> Outros
-            </p>
-            <p class="source">
-                <em>
-                    Nota: Há uma aparente contradição entre este gráfico (que mostra predominância de formações
-                    florestais desmatadas em 57,3%) e o texto de destaque no infográfico (que diz que em 2023 houve
-                    predomínio de desmatamento em formações savânicas com 54,8%). É importante notar que este gráfico se
-                    refere ao desmatamento acumulado após 31 de dezembro de 2020, enquanto o outro dado foca
-                    especificamente no ano de 2023. Isso explica a diferença.
-                </em>
-            </p>
-        </section>
-
-        <section id="conclusao">
-            <h2>Conclusão</h2>
-            <p>A biodiversidade brasileira é um patrimônio de valor inestimável. A preservação de nossos biomas é
-                essencial não só para o equilíbrio ecológico, mas também para a qualidade de vida e o desenvolvimento
-                sustentável do país. A conscientização e a adoção de práticas sustentáveis são indispensáveis para
-                garantir que as futuras gerações possam usufruir dessa imensa riqueza natural.</p>
-        </section>
+      <section id="grafico-vegetacao">
+        <h2>Perda de Vegetação Nativa no Brasil por Bioma</h2>
+        <div class="chart-container">
+          <canvas
+            id="myChart"
+            aria-label="Gráfico de pizza mostrando a perda de vegetação nativa por bioma no Brasil"
+          ></canvas>
+        </div>
+        <p class="source">
+          O gráfico ilustra a severa perda de cobertura vegetal nativa em dois
+          dos biomas mais impactados do Brasil: a
+          <strong>Mata Atlântica</strong> e o <strong>Cerrado</strong>. Esses
+          dados alarmantes destacam a urgência de ações de conservação e
+          reflorestamento para proteger o que resta desses ecossistemas vitais.
+          <br />
+          <small>Fonte: MapBiomas (Dados consolidados até 2023).</small>
+        </p>
+      </section>
     </main>
-</body>
 
+    <script src="../chart.umd.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../dados.json")
+          .then((response) => response.json())
+          .then((data) => {
+            const chartData = data.chartData; // Acessa a parte correta do JSON
+            const ctx = document.getElementById("myChart").getContext("2d");
+            new Chart(ctx, {
+              type: "pie",
+              data: {
+                labels: chartData.labels,
+                datasets: [
+                  {
+                    label: "Perda de Vegetação Nativa (%)",
+                    data: chartData.values,
+                    backgroundColor: chartData.colors,
+                    borderColor: "#fff",
+                    borderWidth: 2,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                  legend: {
+                    position: "top",
+                    labels: {
+                      font: {
+                        size: 14,
+                        family: "'Poppins', sans-serif",
+                      },
+                    },
+                  },
+                  tooltip: {
+                    callbacks: {
+                      label: function (context) {
+                        let label = context.label || "";
+                        if (label) {
+                          label += ": ";
+                        }
+                        if (context.parsed !== null) {
+                          label += context.parsed + "%";
+                        }
+                        return label;
+                      },
+                    },
+                  },
+                },
+              },
+            });
+          })
+          .catch((error) =>
+            console.error("Erro ao carregar os dados do gráfico:", error)
+          );
+      });
+    </script>
+  </body>
 </html>

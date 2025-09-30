@@ -5,7 +5,7 @@
   --bg-light: #f5f5f5;
   --bg-white: #ffffff;
   --border-radius: 10px;
-  --font-base: 'Poppins', sans-serif;
+  --font-base: "Poppins", sans-serif;
   --transition-speed: 0.3s;
   --header-height: 100px;
   /* Altura estimada do header */
@@ -64,16 +64,18 @@ textarea:focus-visible {
 }
 
 header {
-  background: linear-gradient(45deg, var(--secondary-green), var(--primary-green));
+  background: linear-gradient(
+    45deg,
+    var(--secondary-green),
+    var(--primary-green)
+  );
   color: white;
   padding: 10px 0;
   text-align: center;
-  /* <<< MUDANÇA: Retorna a centralização do texto */
 }
 
 .header-container {
   position: relative;
-  /* <<< MUDANÇA: Torna-se a referência para o logo */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -81,19 +83,14 @@ header {
 
 .header-logo {
   position: absolute;
-  /* <<< MUDANÇA: Posiciona o logo de forma absoluta */
   left: 20px;
-  /* <<< MUDANÇA: Alinha à esquerda do container */
   top: 50%;
-  /* <<< MUDANÇA: Centraliza verticalmente */
   transform: translateY(-50%);
-  /* <<< MUDANÇA: Ajuste fino da centralização vertical */
   height: 60px;
 }
 
 header h1 {
   font-size: 2.5rem;
-  /* Ajustado tamanho */
   font-weight: 700;
 }
 
@@ -101,30 +98,24 @@ header h1 {
   background-color: var(--primary-green);
   display: flex;
   justify-content: center;
-  /* Centraliza no desktop */
   align-items: center;
   position: relative;
   padding: 10px;
-  /* Padding ajustado */
 }
 
 nav {
   display: flex;
-  /* Mantém flex no desktop */
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  /* Permite que os links quebrem linha se necessário */
 }
 
 nav a {
   color: white;
   text-decoration: none;
   margin: 5px 15px;
-  /* Ajustado margin */
   font-weight: 600;
   font-size: 1rem;
-  /* Ajustado tamanho */
   transition: color var(--transition-speed) ease;
   padding: 5px 10px;
   border-radius: 4px;
@@ -138,7 +129,6 @@ nav a:focus {
 
 #menu-toggle {
   display: none;
-  /* Escondido no desktop */
   background: none;
   border: none;
   color: white;
@@ -148,7 +138,6 @@ nav a:focus {
 }
 
 #menu-toggle span {
-  /* Esconde o texto "Menu" visualmente */
   position: absolute;
   width: 1px;
   height: 1px;
@@ -165,18 +154,14 @@ nav a:focus {
   margin: 0 auto;
   padding: 20px;
   padding-top: calc(var(--sticky-header-height) + 40px);
-  /* Ajuste para cabeçalho + margem */
 }
 
 /* Seções */
 section {
   margin-bottom: 60px;
   scroll-margin-top: var(--sticky-header-height);
-  /* Ajuste para o cabeçalho fixo */
 }
 
-/* === MELHORIA: Ritmo Visual da Página === */
-/* Alterna a cor de fundo das seções para quebrar a monotonia */
 section:nth-of-type(even) {
   background-color: var(--bg-white);
   padding: 40px 20px;
@@ -201,11 +186,8 @@ h3 {
 p,
 ul {
   font-size: 1.2rem;
-  /* Ajustado tamanho */
   line-height: 1.8;
   color: #444;
-  /* === MELHORIA: Legibilidade === */
-  /* Limita a largura dos parágrafos para facilitar a leitura em telas grandes */
   max-width: 80ch;
 }
 
@@ -213,10 +195,8 @@ ul {
   list-style-type: disc;
   margin-left: 40px;
   margin-bottom: 15px;
-  /* Adiciona espaço entre listas */
 }
 
-/* Ajuste para listas aninhadas */
 ul ul {
   list-style-type: circle;
   margin-top: 10px;
@@ -225,7 +205,6 @@ ul ul {
 
 li {
   margin-bottom: 10px;
-  /* Espaço entre itens da lista */
 }
 
 .source {
@@ -238,16 +217,13 @@ li {
 
 .source small {
   font-size: inherit;
-  /* Garante que o small herde o tamanho do pai */
 }
 
 /* Imagens responsivas */
 .img-responsive {
   width: 100%;
   height: auto;
-  /* Mantém proporção */
   display: block;
-  /* Remove espaço extra abaixo */
   object-fit: cover;
   border-radius: var(--border-radius);
   transition: transform var(--transition-speed) ease;
@@ -256,7 +232,6 @@ li {
 
 .img-responsive:hover {
   transform: scale(1.03);
-  /* Efeito de hover mais sutil */
 }
 
 figcaption {
@@ -271,7 +246,6 @@ figcaption {
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  /* Mínimo ajustado */
   gap: 30px;
   margin-top: 40px;
 }
@@ -281,7 +255,8 @@ figcaption {
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  transition: transform var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease;
 }
 
 .card:hover {
@@ -292,7 +267,6 @@ figcaption {
 .card img {
   width: 100%;
   height: 200px;
-  /* Altura ajustada */
   object-fit: cover;
 }
 
@@ -308,7 +282,6 @@ figcaption {
 
 .card-content p {
   font-size: 1rem;
-  /* Ajustado tamanho */
   color: #666;
 }
 
@@ -323,11 +296,11 @@ figcaption {
   text-decoration: none;
   border-radius: 50px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+  transition: background-color var(--transition-speed) ease,
+    transform var(--transition-speed) ease;
   border: none;
   cursor: pointer;
   margin-top: 15px;
-  /* Espaçamento */
 }
 
 .button:hover,
@@ -344,82 +317,70 @@ footer {
   padding: 20px 0;
   font-size: 1rem;
   margin-top: 60px;
-  /* Espaçamento antes do rodapé */
 }
 
 footer p {
   color: #ddd9ce;
   font-size: 0.9rem;
-  /* Rodapé um pouco menor */
 }
 
 /* Modal */
 #biomeModal {
   display: none;
-  opacity: 0;
-  transition: opacity var(--transition-speed) ease;
   position: fixed;
   z-index: 2000;
-  /* Mais alto que o header */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  /* Mais escuro */
-  backdrop-filter: blur(5px);
-  /* Reduzido blur */
-  overflow-y: auto;
-  /* Permite rolagem se o modal for grande */
-  padding-top: 50px;
-  /* Espaço no topo */
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 #biomeModal.show {
   opacity: 1;
 }
 
-#biomeModal .modal-content {
-  background-color: var(--bg-white);
-  /* Fundo sólido para legibilidade */
-  margin: 5% auto;
-  /* Reduzido margin top */
+/* Este é o container para o texto que é inserido via JS */
+#modalText {
+  background-color: #fefefe;
+  margin: 10% auto;
   padding: 30px;
-  /* Aumentado padding */
+  border-radius: 10px;
   width: 90%;
   max-width: 600px;
-  border-radius: var(--border-radius);
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transform: translateY(-20px);
-  transition: transform var(--transition-speed) ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-50px);
+  transition: transform 0.3s ease;
 }
 
-#biomeModal.show .modal-content {
+#biomeModal.show #modalText {
   transform: translateY(0);
 }
 
-#biomeModal .close {
-  color: #888;
+#modalText .close {
+  color: #aaa;
   position: absolute;
-  top: 15px;
-  right: 25px;
-  font-size: 2.2rem;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
   font-weight: bold;
-  cursor: pointer;
-  background: none;
   border: none;
-  transition: color var(--transition-speed) ease;
+  background: none;
+  cursor: pointer;
 }
 
-#biomeModal .close:hover,
-#biomeModal .close:focus {
+#modalText .close:hover,
+#modalText .close:focus {
   color: black;
+  text-decoration: none;
 }
 
 #modalText h3 {
   margin-top: 0;
-  /* Remove margem do h3 no modal */
 }
 
 #modalText h4 {
@@ -431,7 +392,6 @@ footer p {
   max-width: 100%;
 }
 
-
 /* Botão Voltar ao Topo */
 #backToTopBtn {
   position: fixed;
@@ -441,7 +401,6 @@ footer p {
   height: 50px;
   background-color: var(--primary-green);
   color: white;
-  /* Define a cor do ícone SVG */
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -452,12 +411,13 @@ footer p {
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease, visibility var(--transition-speed) ease;
+  transition: opacity var(--transition-speed) ease,
+    transform var(--transition-speed) ease,
+    visibility var(--transition-speed) ease;
   transform: translateY(20px);
   padding: 0;
 }
 
-/* Estilo para o SVG dentro do botão */
 #backToTopBtn svg {
   width: 24px;
   height: 24px;
@@ -473,8 +433,7 @@ footer p {
   background-color: var(--secondary-green);
 }
 
-
-/* --- Estilos para Gráfico de Desmatamento (CORRIGIDO) --- */
+/* --- Estilos para Gráfico de Desmatamento --- */
 #grafico-vegetacao {
   text-align: center;
 }
@@ -490,7 +449,6 @@ footer p {
   width: 100%;
 }
 
-/* Estilo corrigido para não parecer um card */
 #grafico-vegetacao .source {
   text-align: center;
   max-width: 700px;
@@ -500,16 +458,13 @@ footer p {
 
 #grafico-vegetacao .source strong {
   font-style: normal;
-  /* Garante que o negrito não fique itálico */
   margin: 0 5px;
 }
-
 
 /* Responsividade */
 @media (max-width: 850px) {
   html {
     --sticky-header-height: 80px;
-    /* Header menor */
     scroll-padding-top: 80px;
   }
 
@@ -528,29 +483,24 @@ footer p {
 
   header h1 {
     font-size: 1.6rem;
-    /* Reduzido H1 */
   }
 
   .nav-container {
     justify-content: flex-end;
-    /* Alinha botão à direita */
     padding: 5px 15px;
   }
 
   #menu-toggle {
     display: block;
-    /* Mostra o botão hambúrguer */
     position: absolute;
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1002;
-    /* Acima da nav */
   }
 
   nav {
     display: none;
-    /* Esconde nav por padrão */
     position: fixed;
     top: 0;
     left: 0;
@@ -562,7 +512,6 @@ footer p {
     justify-content: center;
     align-items: center;
     z-index: 1001;
-    /* Acima do header, abaixo do botão */
     transform: translateX(-100%);
     transition: transform var(--transition-speed) ease-in-out;
   }
@@ -574,7 +523,6 @@ footer p {
 
   nav a {
     font-size: 1.5rem;
-    /* Links maiores no menu mobile */
     margin: 15px 0;
     width: 80%;
     text-align: center;
@@ -582,17 +530,14 @@ footer p {
 
   #stickyHeader {
     box-shadow: none;
-    /* Remove sombra para transição mais limpa */
   }
 
-  #stickyHeader>header {
+  #stickyHeader > header {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* Adiciona sombra só no H1 */
   }
 
   .container {
     padding-top: calc(var(--sticky-header-height) + 20px);
-    /* Ajuste menor */
   }
 
   h2 {
@@ -607,17 +552,15 @@ footer p {
   ul {
     font-size: 1.1rem;
     max-width: 100%;
-    /* Remove a restrição de largura em telas pequenas */
   }
 
   .card-container {
     grid-template-columns: 1fr;
-    /* Uma coluna em telas menores */
   }
 
-  #biomeModal .modal-content {
+  #modalText {
     width: 95%;
-    margin: 10% auto;
+    margin: 20% auto;
     padding: 20px;
   }
 
@@ -625,7 +568,6 @@ footer p {
     max-width: 100%;
   }
 
-  /* Ajusta botão Voltar ao Topo para telas menores */
   #backToTopBtn {
     bottom: 20px;
     right: 20px;
@@ -633,7 +575,6 @@ footer p {
     height: 45px;
   }
 
-  /* Ajusta SVG do botão para telas menores */
   #backToTopBtn svg {
     width: 20px;
     height: 20px;

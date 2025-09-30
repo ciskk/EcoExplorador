@@ -1,0 +1,67 @@
+{
+  "biomeDetails": {
+    "amazonia": {
+      "title": "Amazônia",
+      "text": "A maior floresta tropical do mundo, a Amazônia é fundamental para o equilíbrio climático global. Abriga uma biodiversidade inigualável, com milhões de espécies de plantas, insetos, peixes e mamíferos. A bacia amazônica detém a maior reserva de água doce do planeta.",
+      "fauna": [
+        "Onça-pintada",
+        "Boto-cor-de-rosa",
+        "Peixe-boi-da-amazônia",
+        "Arara-vermelha"
+      ],
+      "flora": ["Seringueira", "Castanheira", "Vitória-régia", "Açaizeiro"]
+    },
+    "caatinga": {
+      "title": "Caatinga",
+      "text": "Bioma exclusivamente brasileiro, a Caatinga é adaptada a condições de semi-aridez. Sua vegetação é composta por plantas xerófitas, que sobrevivem com pouca água. É um bioma rico em biodiversidade, com muitas espécies endêmicas.",
+      "fauna": ["Tatu-bola", "Soldadinho-do-araripe", "Asa-branca", "Mocó"],
+      "flora": ["Mandacaru", "Xique-xique", "Juazeiro", "Umbuzeiro"]
+    },
+    "cerrado": {
+      "title": "Cerrado",
+      "text": "Considerado a savana mais rica do mundo em biodiversidade, o Cerrado é conhecido como o 'berço das águas' do Brasil, por abrigar nascentes de importantes bacias hidrográficas. Sua vegetação é adaptada ao fogo e à seca.",
+      "fauna": ["Lobo-guará", "Tamanduá-bandeira", "Ema", "Seriema"],
+      "flora": ["Ipê-amarelo", "Pequizeiro", "Baru", "Cagaita"]
+    },
+    "mata-atlantica": {
+      "title": "Mata Atlântica",
+      "text": "Um dos biomas mais ameaçados do mundo, a Mata Atlântica originalmente se estendia por quase toda a costa brasileira. Hoje, restam apenas fragmentos, mas que ainda abrigam uma biodiversidade extremamente rica e muitas espécies endêmicas.",
+      "fauna": [
+        "Mico-leão-dourado",
+        "Jaguarundi",
+        "Capivara",
+        "Tucano-de-bico-preto"
+      ],
+      "flora": ["Pau-brasil", "Jequitibá-rosa", "Palmito-juçara", "Orquídeas"]
+    },
+    "pampa": {
+      "title": "Pampa",
+      "text": "Também conhecido como Campos Sulinos, o Pampa é caracterizado por sua vegetação campestre, com predominância de gramíneas. É um bioma importante para a pecuária e para a conservação de espécies de aves migratórias.",
+      "fauna": [
+        "Graxaim-do-campo",
+        "Tuco-tuco",
+        "Quero-quero",
+        "João-de-barro"
+      ],
+      "flora": ["Capim-forquilha", "Trevo-nativo", "Babosa-do-campo", "Guiné"]
+    },
+    "pantanal": {
+      "title": "Pantanal",
+      "text": "A maior planície inundável do planeta, o Pantanal é um santuário de vida selvagem. Sua paisagem muda drasticamente entre as estações seca e chuvosa, criando um ecossistema único e de grande importância para a fauna.",
+      "fauna": ["Tuiuiú", "Jacaré", "Sucuri", "Ariranha"],
+      "flora": ["Ipê-roxo", "Cambará", "Acuri", "Aguapé"]
+    }
+  },
+  "chartData": {
+    "labels": [
+      "Mata Atlântica",
+      "Cerrado",
+      "Amazônia",
+      "Pampa",
+      "Pantanal",
+      "Caatinga"
+    ],
+    "values": [88, 52, 21, 54, 17, 45],
+    "colors": ["#d90429", "#ef233c", "#8d99ae", "#43aa8b", "#2b9348", "#f9c74f"]
+  }
+}
