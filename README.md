@@ -59,5 +59,10 @@ O projeto está organizado da seguinte forma para facilitar a manutenção:
 - Francisco Cândido
 - Noan Guedes
 - Davi César
+- João Pedro
+- Luis Felipe
+- João Kelvin
+- Davi Morais
+
 
 &copy; 2025 - Todos os direitos reservados.
