@@ -1,90 +1,354 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gráfico de Vegetação - EcoExplorador</title>
-    <link rel="stylesheet" href="../style.css" />
-  </head>
-  <body>
-    <main class="container">
-      <section id="grafico-vegetacao">
-        <h2>Perda de Vegetação Nativa no Brasil por Bioma</h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gráfico de Vegetação Desmatada</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      padding: 20px;
+      color: #333;
+      background: linear-gradient(to bottom, #ffffff 0%, #dff4e1 100%);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .header {
+      background: linear-gradient(135deg, #204b22 0%, #49734b 100%);
+      color: white;
+      padding: 50px 40px;
+      text-align: center;
+    }
+
+    .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    .header p { font-size: 1.2rem; opacity: 0.95; }
+
+    .main-content { padding: 40px; }
+
+    .chart-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .chart-container {
+      position: relative;
+      height: 400px;
+      width: 100%;
+      background: #fafafa;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .chart-container:hover { transform: translateY(-5px); }
+
+    .chart-info {
+      background: #f9fbf9;
+      border-radius: 15px;
+      padding: 30px;
+      border-left: 6px solid #204b22;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .chart-info h2 {
+      color: #204b22;
+      margin-bottom: 20px;
+    }
+
+    .data-point {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s;
+    }
+
+    .data-point:hover {
+      background-color: #eaf6ea;
+      transform: translateX(4px);
+    }
+
+    .color-indicator {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .percentage {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #204b22;
+      margin-right: 10px;
+    }
+
+    .note {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 30px;
+      border-left: 4px solid #f39c12;
+    }
+
+    .note h3 {
+      color: #856404;
+      margin-bottom: 10px;
+    }
+
+    .conclusion {
+      background: #e8f5e9;
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 40px;
+      border-left: 5px solid #2e7d32;
+    }
+
+    .conclusion h2 {
+      color: #1b5e20;
+      margin-bottom: 20px;
+    }
+
+    /* Container para detalhes */
+    #detalhe-card-container {
+      margin-top: 30px;
+    }
+
+    .detalhe-card {
+      background: #f1f9f1;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-left: 5px solid #2e7d32;
+      animation: slideDown 0.4s ease-out;
+      position: relative;
+    }
+
+    .detalhe-card ul { margin-top: 10px; }
+    .detalhe-card a {
+      color: #2e7d32;
+      text-decoration: none;
+    }
+    .detalhe-card a:hover { text-decoration: underline; }
+
+    /* Botão de fechar */
+    .fechar-card {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #e57373;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .chart-section { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Desmatamento da Vegetação Nativa</h1>
+      <p>Proporção dos tipos de vegetação desmatados após 31 de Dezembro de 2020</p>
+    </header>
+
+    <main class="main-content">
+      <section class="chart-section">
         <div class="chart-container">
-          <canvas
-            id="myChart"
-            aria-label="Gráfico de pizza mostrando a perda de vegetação nativa por bioma no Brasil"
-          ></canvas>
+          <canvas id="graficoPizza"></canvas>
         </div>
-        <p class="source">
-          O gráfico ilustra a severa perda de cobertura vegetal nativa em dois
-          dos biomas mais impactados do Brasil: a
-          <strong>Mata Atlântica</strong> e o <strong>Cerrado</strong>. Esses
-          dados alarmantes destacam a urgência de ações de conservação e
-          reflorestamento para proteger o que resta desses ecossistemas vitais.
-          <br />
-          <small>Fonte: MapBiomas (Dados consolidados até 2023).</small>
+
+        <div class="chart-info">
+          <h2>Dados do Desmatamento</h2>
+          <div class="data-point" data-index="0">
+            <div class="color-indicator" style="background-color: #2e7d32;"></div>
+            <span class="percentage">57,3%</span>
+            <span>Formações florestais</span>
+          </div>
+          <div class="data-point" data-index="1">
+            <div class="color-indicator" style="background-color: #66bb6a;"></div>
+            <span class="percentage">38,5%</span>
+            <span>Formações savânicas</span>
+          </div>
+          <div class="data-point" data-index="2">
+            <div class="color-indicator" style="background-color: #a5d6a7;"></div>
+            <span class="percentage">4,2%</span>
+            <span>Outros</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Container para detalhes -->
+      <div id="detalhe-card-container"></div>
+
+      <div class="note">
+        <h3>Nota Importante</h3>
+        <p>
+          Há uma aparente contradição entre este gráfico (que mostra predominância de formações
+          florestais desmatadas em 57,3%) e o texto de destaque no infográfico (que diz que em 2023 houve
+          predomínio de desmatamento em formações savânicas com 54,8%). É importante notar que este gráfico se
+          refere ao desmatamento acumulado após 31 de dezembro de 2020, enquanto o outro dado foca
+          especificamente no ano de 2023. Isso explica a diferença.
+        </p>
+      </div>
+
+      <section class="conclusion">
+        <h2>Conclusão</h2>
+        <p>
+          A biodiversidade brasileira é um patrimônio de valor inestimável. A preservação de nossos biomas é
+          essencial não só para o equilíbrio ecológico, mas também para a qualidade de vida e o
+          desenvolvimento sustentável do país. A conscientização e a adoção de práticas sustentáveis são indispensáveis para
+          garantir que as futuras gerações possam usufruir dessa imensa riqueza natural.
         </p>
       </section>
     </main>
+  </div>
 
-    <script src="../chart.umd.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        fetch("../dados.json")
-          .then((response) => response.json())
-          .then((data) => {
-            const chartData = data.chartData; // Acessa a parte correta do JSON
-            const ctx = document.getElementById("myChart").getContext("2d");
-            new Chart(ctx, {
-              type: "pie",
-              data: {
-                labels: chartData.labels,
-                datasets: [
-                  {
-                    label: "Perda de Vegetação Nativa (%)",
-                    data: chartData.values,
-                    backgroundColor: chartData.colors,
-                    borderColor: "#fff",
-                    borderWidth: 2,
-                  },
-                ],
-              },
-              options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: {
-                  legend: {
-                    position: "top",
-                    labels: {
-                      font: {
-                        size: 14,
-                        family: "'Poppins', sans-serif",
-                      },
-                    },
-                  },
-                  tooltip: {
-                    callbacks: {
-                      label: function (context) {
-                        let label = context.label || "";
-                        if (label) {
-                          label += ": ";
-                        }
-                        if (context.parsed !== null) {
-                          label += context.parsed + "%";
-                        }
-                        return label;
-                      },
-                    },
-                  },
-                },
-              },
-            });
-          })
-          .catch((error) =>
-            console.error("Erro ao carregar os dados do gráfico:", error)
-          );
+  <script>
+    const ctx = document.getElementById('graficoPizza').getContext('2d');
+
+    const chart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Formações florestais', 'Formações savânicas', 'Outros'],
+        datasets: [{
+          data: [57.3, 38.5, 4.2],
+          backgroundColor: ['#2e7d32', '#66bb6a', '#a5d6a7'],
+          borderColor: '#ffffff',
+          borderWidth: 3,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '65%',
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#333',
+            titleColor: '#fff',
+            bodyColor: '#fff',
+            borderColor: '#2e7d32',
+            borderWidth: 2,
+            cornerRadius: 8,
+            callbacks: {
+              label: ctx => `${ctx.label}: ${ctx.parsed}%`
+            }
+          }
+        },
+        animation: { animateRotate: true, animateScale: true, duration: 1500 }
+      }
+    });
+
+    const detalheContainer = document.getElementById('detalhe-card-container');
+
+    // Dados de detalhe com ONGs e links
+    const detalheData = [
+      {
+        titulo: "Formações Florestais",
+        areas: "Principais áreas de desmatamento: Amazônia, Mata Atlântica, Floresta de Araucárias.",
+        orgs: [
+          { nome: "SOS Mata Atlântica", link: "https://www.sosma.org.br/" },
+          { nome: "WWF Brasil", link: "https://www.wwf.org.br/participe/doe/" }
+        ]
+      },
+      {
+        titulo: "Formações Savânicas",
+        areas: "Principais áreas de desmatamento: Cerrado, Pantanal, Caatinga.",
+        orgs: [
+          { nome: "Instituto Cerrado", link: "https://www.institutocerrado.org.br/" },
+          { nome: "WWF Brasil", link: "https://www.wwf.org.br/participe/doe/" }
+        ]
+      },
+      {
+        titulo: "Outros",
+        areas: "Principais áreas de desmatamento: Manguezais, restingas, áreas urbanas.",
+        orgs: [
+          { nome: "The Nature Conservancy Brasil", link: "https://www.nature.org/pt-br/quem-somos/" }
+        ]
+      }
+    ];
+
+    let cardAberto = null;
+
+    document.querySelectorAll('.data-point').forEach((point, i) => {
+      point.addEventListener('click', () => {
+        const index = parseInt(point.dataset.index);
+        const active = chart.getActiveElements();
+
+        // Destaque no gráfico
+        if (active.length && active[0].index == index) {
+          chart.setActiveElements([]);
+        } else {
+          chart.setActiveElements([{ datasetIndex: 0, index }]);
+        }
+        chart.update();
+
+        // Toggle do card
+        if (cardAberto === index) {
+          detalheContainer.innerHTML = '';
+          cardAberto = null;
+          return;
+        }
+
+        const detalhe = detalheData[index];
+        let orgList = detalhe.orgs.map(org => `<li><a href="${org.link}" target="_blank">${org.nome}</a></li>`).join('');
+
+        detalheContainer.innerHTML = `
+          <div class="detalhe-card">
+            <button class="fechar-card">Fechar</button>
+            <h3>${detalhe.titulo}</h3>
+            <p>${detalhe.areas}</p>
+            <strong>Organizações que combatem o desmatamento:</strong>
+            <ul>${orgList}</ul>
+          </div>
+        `;
+
+        // Botão de fechar
+        document.querySelector('.fechar-card').addEventListener('click', () => {
+          detalheContainer.innerHTML = '';
+          cardAberto = null;
+        });
+
+        cardAberto = index;
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>
