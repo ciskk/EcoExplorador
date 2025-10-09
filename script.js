@@ -1,16 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   // --- Efeito do Header Fixo ---
   const stickyHeader = document.getElementById("stickyHeader");
-  // SÓ EXECUTA SE O HEADER EXISTIR NA PÁGINA
   if (stickyHeader) {
     let lastScrollTop = 0;
     window.addEventListener("scroll", () => {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       if (scrollTop > lastScrollTop) {
-        // Rolando para baixo
         stickyHeader.style.transform = "translateY(-100%)";
       } else {
-        // Rolando para cima
         stickyHeader.style.transform = "translateY(0)";
       }
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
@@ -20,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Menu Hamburger para Telas Pequenas ---
   const menuToggle = document.getElementById("menu-toggle");
   const mainNav = document.getElementById("main-nav");
-  // SÓ EXECUTA SE O MENU EXISTIR
   if (menuToggle && mainNav) {
     menuToggle.addEventListener("click", () => {
       const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
@@ -31,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
         : "";
     });
 
-    // Fechar menu ao clicar em um link
     mainNav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         if (mainNav.classList.contains("nav-open")) {
@@ -45,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Botão "Voltar ao Topo" ---
   const backToTopBtn = document.getElementById("backToTopBtn");
-  // SÓ EXECUTA SE O BOTÃO EXISTIR NA PÁGINA
   if (backToTopBtn) {
     backToTopBtn.innerHTML = `
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -86,6 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <ul>${data.fauna.map((item) => `<li>${item}</li>`).join("")}</ul>
         <h4>Flora Destaque:</h4>
         <ul>${data.flora.map((item) => `<li>${item}</li>`).join("")}</ul>
+        ${data.clima ? `<h4>Clima:</h4><p>${data.clima}</p>` : ''}
+        ${data.solo ? `<h4>Solo:</h4><p>${data.solo}</p>` : ''}
+        ${data.curiosidades && data.curiosidades.length > 0 ? `<h4>Curiosidades:</h4><ul>${data.curiosidades.map((item) => `<li>${item}</li>`).join("")}</ul>` : ''}
       </div>
     `;
 
@@ -120,8 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // SÓ EXECUTA SE HOUVER BOTÕES "ver-detalhes" NA PÁGINA
-  if (verDetalhesButtons.length > 0) {
+  // --- Carregamento de Dados e Renderização --- 
+  if (verDetalhesButtons.length > 0 || document.getElementById('clima-content') || document.querySelector('.solo-card-container') || document.querySelector('.curiosidades-slider')) {
     fetch("../dados.json")
       .then((response) => {
         if (!response.ok) {
@@ -131,6 +128,8 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .then((data) => {
         const biomasData = data.biomeDetails;
+        
+        // Renderizar detalhes do bioma no modal
         verDetalhesButtons.forEach((button) => {
           button.addEventListener("click", (e) => {
             const card = e.target.closest(".card");
@@ -140,7 +139,96 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           });
         });
+
+        // Renderizar seção de Clima
+        const climaContentDiv = document.getElementById('clima-content');
+        if (climaContentDiv) {
+          let climaHtml = '';
+          for (const biomeKey in biomasData) {
+            const biome = biomasData[biomeKey];
+            if (biome.clima) {
+              climaHtml += `
+                <div class="clima-item">
+                  <h3>${biome.title}</h3>
+                  <p>${biome.clima}</p>
+                </div>
+              `;
+            }
+          }
+          climaContentDiv.innerHTML = climaHtml;
+        }
+
+        // Renderizar seção de Solos
+        const soloCardContainer = document.querySelector('.solo-card-container');
+        if (soloCardContainer) {
+          let soloHtml = '';
+          for (const biomeKey in biomasData) {
+            const biome = biomasData[biomeKey];
+            if (biome.solo) {
+              soloHtml += `
+                <div class="solo-card">
+                  <h3>${biome.title}</h3>
+                  <p>${biome.solo}</p>
+                </div>
+              `;
+            }
+          }
+          soloCardContainer.innerHTML = soloHtml;
+        }
+
+        // Renderizar seção de Curiosidades (Slider)
+        const curiosidadesSlider = document.querySelector('.curiosidades-slider');
+        const prevButton = document.querySelector('.curiosidades-slider-container .prev');
+        const nextButton = document.querySelector('.curiosidades-slider-container .next');
+        let currentCuriosidadeIndex = 0;
+        let allCuriosidades = [];
+
+        if (curiosidadesSlider) {
+          for (const biomeKey in biomasData) {
+            const biome = biomasData[biomeKey];
+            if (biome.curiosidades && biome.curiosidades.length > 0) {
+              biome.curiosidades.forEach(curiosidade => {
+                allCuriosidades.push({ biome: biome.title, text: curiosidade });
+              });
+            }
+          }
+
+          const renderCuriosidade = () => {
+            if (allCuriosidades.length === 0) {
+              curiosidadesSlider.innerHTML = '<p>Nenhuma curiosidade disponível.</p>';
+              prevButton.style.display = 'none';
+              nextButton.style.display = 'none';
+              return;
+            }
+            const curiosidade = allCuriosidades[currentCuriosidadeIndex];
+            curiosidadesSlider.innerHTML = `
+              <div class="curiosidade-card">
+                <h4>${curiosidade.biome}</h4>
+                <p>${curiosidade.text}</p>
+              </div>
+            `;
+            prevButton.style.display = allCuriosidades.length > 1 ? 'block' : 'none';
+            nextButton.style.display = allCuriosidades.length > 1 ? 'block' : 'none';
+          };
+
+          const showNextCuriosidade = () => {
+            currentCuriosidadeIndex = (currentCuriosidadeIndex + 1) % allCuriosidades.length;
+            renderCuriosidade();
+          };
+
+          const showPrevCuriosidade = () => {
+            currentCuriosidadeIndex = (currentCuriosidadeIndex - 1 + allCuriosidades.length) % allCuriosidades.length;
+            renderCuriosidade();
+          };
+
+          prevButton.addEventListener('click', showPrevCuriosidade);
+          nextButton.addEventListener('click', showNextCuriosidade);
+
+          renderCuriosidade(); // Renderiza a primeira curiosidade ao carregar a página
+        }
+
       })
       .catch((error) => console.error("Erro ao carregar dados dos biomas:", error));
   }
 });
+
