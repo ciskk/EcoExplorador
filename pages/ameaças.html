@@ -116,10 +116,11 @@
         justify-content: center;
         max-width: 960px;
         margin: 0 auto;
-        flex-wrap: wrap;
+        flex-wrap: nowrap; /* Garante que os itens não quebrem a linha */
       }
 
       #main-nav a {
+        white-space: nowrap; /* Garante que o texto não quebre */
         color: rgba(255, 255, 255, 0.986);
         text-decoration: none;
         padding: 10px 15px;
@@ -446,25 +447,28 @@
         }
 
         #menu-toggle {
-          display: block;
-          width: 100%;
-          text-align: left;
+          display: none; /* Oculta o botão de toggle em todas as resoluções */
         }
 
         #main-nav {
-          flex-direction: column;
-          display: none;
+          display: flex; /* Garante que a navegação esteja sempre visível */
+          flex-direction: row; /* Garante que os itens fiquem na mesma linha */
+          flex-wrap: nowrap; /* Garante que os itens não quebrem a linha */
+          justify-content: center; /* Centraliza os itens da navegação */
+          overflow-x: auto; /* Adiciona scroll horizontal se necessário */
+          -webkit-overflow-scrolling: touch; /* Melhoria para scroll em iOS */
+        }
+
+        #main-nav a {
+          white-space: nowrap; /* Garante que o texto não quebre */
+          text-align: center; /* Centraliza o texto dos links */
+          border-bottom: none; /* Remove a borda inferior */
+          margin: 0 5px; /* Adiciona um pequeno espaçamento entre os links */
+          border-radius: 5px; /* Mantém o border-radius original */
         }
 
         #main-nav.active {
           display: flex;
-        }
-
-        #main-nav a {
-          text-align: left;
-          border-bottom: 1px solid #5cb85c;
-          margin: 0;
-          border-radius: 0;
         }
 
         .container {
