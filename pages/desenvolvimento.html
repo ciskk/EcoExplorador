@@ -3,59 +3,547 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Desenvolvimento Sustentável - EcoExplorador</title>
-    <link rel="stylesheet" href="../style.css" />
+    <title>Desenvolvimento Sustentável - ECO EXPLORADOR</title>
+
+    <meta
+      name="description"
+      content="Entenda o conceito de desenvolvimento sustentável e sua importância para o futuro do planeta e da biodiversidade brasileira."
+    />
+    <meta name="author" content="EcoExplorador" />
+    <meta
+      name="keywords"
+      content="desenvolvimento sustentável, sustentabilidade, meio ambiente, Brasil, biodiversidade, conservação"
+    />
+    <meta name="theme-color" content="#F8F7F2" />
+
+    <link rel="icon" type="image/x-icon" href="../images/layout/logo.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+:root {
+  --primary-green: #4caf50;
+  --secondary-green: #2d6a4f;
+  --text-color: #333;
+  --bg-light: #f5f5f5;
+  --bg-white: #ffffff;
+  --border-radius: 10px;
+  --font-base: "Poppins", sans-serif;
+  --transition-speed: 0.3s;
+  --sticky-header-height: 150px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--sticky-header-height);
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--bg-light);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+#stickyHeader {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: var(--bg-white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  background: linear-gradient(45deg, var(--secondary-green), var(--primary-green));
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.header-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header-logo {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.nav-container {
+  background-color: var(--primary-green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 5px 15px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all var(--transition-speed) ease;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: calc(var(--sticky-header-height) + 40px);
+}
+
+section {
+  margin-bottom: 60px;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: var(--secondary-green);
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.8rem;
+  color: var(--primary-green);
+  margin: 30px 0 15px;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.card {
+  background: var(--bg-white);
+  border-radius: var(--border-radius);
+  padding: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-speed) ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-green);
+}
+
+.card h4 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: var(--secondary-green);
+}
+
+.card h4 i {
+  margin-right: 10px;
+  color: var(--primary-green);
+}
+
+.card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.accordion {
+  margin-top: 20px;
+}
+
+.accordion-item {
+  background-color: var(--bg-white);
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  background-color: var(--primary-green);
+  color: white;
+  padding: 15px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.accordion-header:hover {
+  background-color: var(--secondary-green);
+}
+
+.accordion-content {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.accordion-content.active {
+  padding: 20px;
+  max-height: 500px;
+}
+
+.quiz-container {
+  background-color: var(--bg-white);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  margin: 30px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-question {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--secondary-green);
+  margin-bottom: 20px;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.quiz-option {
+  background-color: var(--bg-light);
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  font-size: 1.1rem;
+}
+
+.quiz-option:hover {
+  border-color: var(--primary-green);
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.quiz-option.selected {
+  border-color: var(--primary-green);
+  background-color: rgba(76, 175, 80, 0.2);
+}
+
+.quiz-option.correct {
+  border-color: #4caf50;
+  background-color: rgba(76, 175, 80, 0.3);
+}
+
+.quiz-option.incorrect {
+  border-color: #f44336;
+  background-color: rgba(244, 67, 54, 0.2);
+}
+
+.quiz-feedback {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+  display: none;
+}
+
+.quiz-feedback.show {
+  display: block;
+}
+
+.quiz-feedback.correct {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #2d6a4f;
+}
+
+.quiz-feedback.incorrect {
+  background-color: rgba(244, 67, 54, 0.2);
+  color: #c62828;
+}
+
+.action-list {
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.action-list li {
+  background-color: var(--bg-white);
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--primary-green);
+  transition: all var(--transition-speed) ease;
+  cursor: pointer;
+}
+
+.action-list li:hover {
+  transform: translateX(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.action-list li i {
+  margin-right: 10px;
+  color: var(--primary-green);
+}
+
+footer {
+  background-color: var(--secondary-green);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1rem;
+  margin-top: 60px;
+}
+
+footer p {
+  color: #ddd9ce;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .header-logo {
+    height: 40px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+}
+    </style>
   </head>
 
   <body>
+    <div id="stickyHeader">
+      <header>
+        <div class="header-container">
+          <img
+            src="../images/layout/logo.ico"
+            alt="Logo EcoExplorador"
+            class="header-logo"
+          />
+          <h1>EcoExplorador - Biodiversidade Brasileira</h1>
+        </div>
+      </header>
+      <div class="nav-container">
+        <nav>
+          <a href="../index.html">Início</a>
+          <a href="definição_da_fauna_e_flora.html">Definição da Fauna</a>
+          <a href="fauna_e_flora.html">Fauna</a>
+          <a href="importancia.html">Importância</a>
+          <a href="ameaças.html">Ameaças</a>
+          <a href="desenvolvimento.html">Sustentabilidade</a>
+          <a href="biomas.html">Biomas</a>
+          <a href="como_ajudar.html">Como Ajudar</a>
+          <a href="grafico_vegetação.html">Gráfico Interativo</a>
+          <a href="conclusão.html">Conclusão</a>
+        </nav>
+      </div>
+    </div>
+
     <main class="container">
-      <section id="desenvolvimento">
+      <section id="desenvolvimento-sustentavel">
         <h2>Desenvolvimento Sustentável</h2>
+        
+        <h3>O que é?</h3>
         <p>
-          O desenvolvimento sustentável é um modelo que busca conciliar o
-          progresso econômico e social com a proteção do meio ambiente,
-          garantindo que as necessidades da geração atual sejam atendidas sem
-          comprometer a capacidade das futuras gerações de atenderem às suas
-          próprias necessidades.
-        </p>
-        <p>
-          No contexto da biodiversidade brasileira, isso significa adotar
-          práticas que permitam o uso dos recursos naturais de forma inteligente
-          e responsável.
+          É o desenvolvimento que atende às necessidades do presente sem comprometer a capacidade das futuras gerações de atenderem às suas próprias necessidades. Em resumo, é sobre encontrar um equilíbrio entre o crescimento econômico, a proteção ambiental e o bem-estar social.
         </p>
 
-        <h3>Práticas e Iniciativas</h3>
-        <ul>
-          <li>
-            <strong>Manejo Florestal Sustentável:</strong> Exploração de madeira
-            e outros produtos florestais de forma a garantir a capacidade de
-            regeneração da floresta.
-          </li>
-          <li>
-            <strong>Agroecologia e Sistemas Agroflorestais (SAFs):</strong>
-            Produção de alimentos que imita os ecossistemas naturais, combinando
-            culturas agrícolas com árvores nativas, o que ajuda a recuperar o
-            solo e a biodiversidade.
-          </li>
-          <li>
-            <strong>Ecoturismo Responsável:</strong> Atividade turística que
-            promove a conservação ambiental e gera renda para as comunidades
-            locais, incentivando a proteção das áreas naturais.
-          </li>
-          <li>
-            <strong>Bioeconomia:</strong> Uso de recursos biológicos renováveis
-            para a produção de energia, alimentos e outros produtos, agregando
-            valor à biodiversidade e incentivando sua conservação.
-          </li>
+        <h3>Os Três Pilares</h3>
+        <div class="card-container">
+          <div class="card" data-pillar="ambiental">
+            <h4><i class="fas fa-leaf"></i> Ambiental</h4>
+            <p>Conservação dos recursos naturais e da biodiversidade.</p>
+          </div>
+          <div class="card" data-pillar="economico">
+            <h4><i class="fas fa-chart-line"></i> Econômico</h4>
+            <p>Crescimento econômico viável a longo prazo, sem esgotar os recursos.</p>
+          </div>
+          <div class="card" data-pillar="social">
+            <h4><i class="fas fa-users"></i> Social</h4>
+            <p>Justiça social, redução das desigualdades e garantia de direitos básicos para todos.</p>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Objetivos de Desenvolvimento Sustentável (ODS)</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+              <p>A Agenda 2030 da ONU estabeleceu 17 ODS para enfrentar desafios globais, como a pobreza, a mudança climática e a conservação da vida. Para o Brasil, os ODS 13, 14 e 15 são cruciais para a proteção dos nossos ecossistemas.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Sustentabilidade no Brasil</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+              <p>O Brasil tem um papel fundamental na sustentabilidade global. Iniciativas como agricultura sustentável, ecoturismo e energias renováveis mostram que é possível conciliar desenvolvimento e preservação. No entanto, desafios como o desmatamento ainda persistem.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Teste seus conhecimentos!</h3>
+        <div class="quiz-container">
+          <div class="quiz-question">
+            Qual dos seguintes NÃO é um dos três pilares do desenvolvimento sustentável?
+          </div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-answer="wrong">Tecnológico</div>
+            <div class="quiz-option" data-answer="wrong">Ambiental</div>
+            <div class="quiz-option" data-answer="wrong">Econômico</div>
+            <div class="quiz-option" data-answer="wrong">Social</div>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <h3>Como Contribuir?</h3>
+        <ul class="action-list">
+          <li><i class="fas fa-recycle"></i> Reduza o consumo de recursos</li>
+          <li><i class="fas fa-trash-alt"></i> Recicle seu lixo</li>
+          <li><i class="fas fa-shopping-bag"></i> Prefira produtos sustentáveis</li>
+          <li><i class="fas fa-lightbulb"></i> Economize energia e água</li>
+          <li><i class="fas fa-handshake"></i> Apoie empresas responsáveis</li>
         </ul>
-        <p>
-          Investir em desenvolvimento sustentável não é apenas uma necessidade
-          ambiental, mas também uma oportunidade para criar uma economia mais
-          justa, resiliente e inovadora.
-        </p>
+
       </section>
     </main>
 
-    <script src="../script.js"></script>
+    <footer>
+      <p>
+        &copy; 2025 Francisco Gustavo, Francisco Cândido, Noan Guedes &amp; Davi César
+      </p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Accordion functionality
+        const accordionItems = document.querySelectorAll(".accordion-item");
+        accordionItems.forEach(item => {
+          const header = item.querySelector(".accordion-header");
+          header.addEventListener("click", () => {
+            const content = item.querySelector(".accordion-content");
+            content.classList.toggle("active");
+            const icon = header.querySelector("i");
+            icon.classList.toggle("fa-chevron-down");
+            icon.classList.toggle("fa-chevron-up");
+          });
+        });
+
+        // Quiz functionality
+        const quizOptions = document.querySelectorAll(".quiz-option");
+        const feedback = document.querySelector(".quiz-feedback");
+        
+        // Set correct answer (first option is correct in this case)
+        quizOptions[0].dataset.answer = "correct";
+        
+        quizOptions.forEach(option => {
+          option.addEventListener("click", () => {
+            // Remove previous selections
+            quizOptions.forEach(opt => {
+              opt.classList.remove("selected", "correct", "incorrect");
+            });
+            
+            // Mark selected option
+            option.classList.add("selected");
+            
+            // Check answer
+            if (option.dataset.answer === "correct") {
+              option.classList.add("correct");
+              feedback.textContent = "✓ Correto! 'Tecnológico' não é um dos três pilares do desenvolvimento sustentável.";
+              feedback.className = "quiz-feedback show correct";
+            } else {
+              option.classList.add("incorrect");
+              feedback.textContent = "✗ Incorreto. Tente novamente! Dica: Os três pilares são Ambiental, Econômico e Social.";
+              feedback.className = "quiz-feedback show incorrect";
+            }
+          });
+        });
+
+        // Card hover effect with info
+        const cards = document.querySelectorAll(".card");
+        cards.forEach(card => {
+          card.addEventListener("click", () => {
+            const pillar = card.dataset.pillar;
+            let message = "";
+            
+            switch(pillar) {
+              case "ambiental":
+                message = "O pilar ambiental foca na proteção dos ecossistemas e no uso responsável dos recursos naturais.";
+                break;
+              case "economico":
+                message = "O pilar econômico busca criar prosperidade sem destruir o meio ambiente.";
+                break;
+              case "social":
+                message = "O pilar social garante que o desenvolvimento beneficie todas as pessoas de forma justa.";
+                break;
+            }
+            
+            alert(message);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
