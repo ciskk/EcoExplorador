@@ -6,8 +6,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Importância da Biodiversidade - EcoExplorador</title>
   <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
+<style>
+  /* ---------- ESTILO GERAL ---------- */
+:root {
+  --verde: #2e7d32;
+  --verde-claro: #66bb6a;
+  --marrom: #4e342e;
+  --branco: #ffffff;
+  --cinza-claro: #f4f4f4;
+  --sombra: rgba(0, 0, 0, 0.1);
+  --fonte-titulo: 'Poppins', sans-serif;
+  --fonte-texto: 'Open Sans', sans-serif;
+}
 
+
+
+/* ---------- CONTEÚDO PRINCIPAL ---------- */
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
+
+.card {
+  background-color: var(--branco);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 10px var(--sombra);
+  transition: transform 0.2s ease;
+  margin-top: 100px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+h2, h3 {
+  font-family: var(--fonte-titulo);
+  color: var(--verde);
+  margin-bottom: 0.8rem;
+}
+
+h2 {
+  border-bottom: 3px solid var(--verde-claro);
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+ul {
+  margin: 1rem 0 1rem 1.5rem;
+  list-style-type: square;
+}
+
+li {
+  margin-bottom: 0.8rem;
+}
+
+</style>
 <body>
   <div id="stickyHeader">
     <header>
@@ -34,8 +91,11 @@
       </nav>
     </div>
   </div>
+
   <main class="container">
-    <section id="importancia">
+  <section id="importancia">
+    <!-- Card 1: Introdução -->
+    <div class="card">
       <h2>A Importância da Biodiversidade</h2>
       <p>
         A biodiversidade, ou diversidade biológica, é a variedade de vida no
@@ -43,7 +103,10 @@
         inteiros. A sua preservação é crucial para a manutenção da vida na
         Terra, incluindo a nossa.
       </p>
+    </div>
 
+    <!-- Card 2: Serviços Ecossistêmicos -->
+    <div class="card">
       <h3>Serviços Ecossistêmicos</h3>
       <p>
         Os ecossistemas saudáveis fornecem uma série de "serviços" gratuitos e
@@ -71,7 +134,10 @@
           tornar pragas na agricultura.
         </li>
       </ul>
+    </div>
 
+    <!-- Card 3: Recursos para a Sociedade -->
+    <div class="card">
       <h3>Recursos para a Sociedade</h3>
       <p>
         A biodiversidade é uma fonte inesgotável de recursos que utilizamos em
@@ -84,8 +150,8 @@
         </li>
         <li>
           <strong>Medicamentos:</strong> Muitos remédios são derivados de
-          compostos encontrados em plantas. A cura para muitas
-          doenças pode estar na natureza.
+          compostos encontrados em plantas. A cura para muitas doenças pode
+          estar na natureza.
         </li>
         <li>
           <strong>Matérias-Primas:</strong> Madeira, fibras, óleos e resinas
@@ -93,15 +159,24 @@
           movimentam a economia.
         </li>
         <li>
-          <strong>Patrimônio Cultural:</strong> A biodiversidade brasileira está ligada a culturas de povos
-          originários e comunidades tradicionais, que detêm saberes valiosos.
+          <strong>Patrimônio Cultural:</strong> A biodiversidade brasileira está
+          ligada a culturas de povos originários e comunidades tradicionais, que
+          detêm saberes valiosos.
         </li>
-        <li><strong>Turismo e ecoturismo:</strong> A riqueza natural do país, que inclui florestas, praias e o Pantanal, é um grande
-          atrativo para o turismo, gerando benefícios econômicos para as comunidades locais.
+        <li>
+          <strong>Turismo e Ecoturismo:</strong> A riqueza natural do país, que
+          inclui florestas, praias e o Pantanal, é um grande atrativo para o
+          turismo, gerando benefícios econômicos para as comunidades locais.
         </li>
       </ul>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 EcoExplorador. Todos os direitos reservados.</p>
+</footer>
+
 
   <script src="../script.js"></script>
 </body>
