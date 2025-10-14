@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoExplorador - Ameaças à Biodiversidade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+
+  <body>
+    <div class="floating-leaves">
+      <div class="leaf">🍃</div>
+      <div class="leaf">🌿</div>
+      <div class="leaf">🍂</div>
+      <div class="leaf">🌱</div>
+      <div class="leaf">🍃</div>
+      <div class="leaf">🌿</div>
+    </div>
+
+    <div id="stickyHeader">
+      <header>
+        <div class="header-container">
+          <a href="../index.html" aria-label="Página Inicial do EcoExplorador">
+            <img src="../images/layout/logo.ico" alt="Logo EcoExplorador" class="header-logo" />
+          </a>
+          <h1>EcoExplorador - Biodiversidade Brasileira</h1>
+        </div>
+      </header>
+      <div class="nav-container">
+        <a href="#" id="menu-toggle">☰ Menu</a>
+        <nav id="main-nav">
+          <a href="../index.html">Início</a>
+          <a href="definicao-fauna-flora.html">Definição da Fauna e Flora</a>
+          <a href="fauna_e_flora.html">Fauna e Flora</a>
+          <a href="importancia.html">Importância</a>
+          <a href="ameacas.html" class="active">Ameaças</a>
+          <a href="desenvolvimento.html">Sustentabilidade</a>
+          <a href="biomas.html">Biomas</a>
+          <a href="como_ajudar.html">Como Ajudar</a>
+          <a href="grafico-vegetacao.html">Gráfico Interativo</a>
+          <a href="conclusao.html">Conclusão</a>
+        </nav>
+      </div>
+    </div>
+
+    <main class="container">
+      <section id="ameacas">
+        <h2>🌿 As Principais Ameaças à Biodiversidade Brasileira 🌿</h2>
+        <p class="intro">
+          O Brasil, detentor de uma das maiores biodiversidades do planeta, enfrenta desafios significativos para a conservação de seus ecossistemas. Ações humanas e fenômenos naturais têm colocado em risco a rica fauna e flora de nossos biomas. Compreender essas ameaças é o primeiro passo para a proteção e recuperação de nosso patrimônio natural.
+        </p>
+        
+        <div class="threats-grid">
+            <div class="threat-card" data-threat="desmatamento"><div class="threat-icon">🌳</div><h3>1. Desmatamento</h3><p>Considerado a maior ameaça, o desmatamento atinge praticamente todos os biomas brasileiros, com destaque para a Amazônia, Cerrado e Mata Atlântica. É impulsionado principalmente pela expansão agropecuária, extração ilegal de madeira e garimpo.</p><div class="threat-impact"><strong>Impactos:</strong> Perda de habitats, extinção de espécies, desequilíbrio climático</div></div>
+            <div class="threat-card" data-threat="agropecuaria"><div class="threat-icon">🐄</div><h3>2. Agropecuária</h3><p>A expansão desordenada da agricultura e pecuária é um dos principais vetores do desmatamento e da degradação ambiental. A conversão de áreas naturais em pastagens e lavouras resulta na perda de biodiversidade.</p><div class="threat-impact"><strong>Impactos:</strong> Fragmentação de ecossistemas, perda de biodiversidade</div></div>
+            <div class="threat-card" data-threat="mineracao"><div class="threat-icon">⛏️</div><h3>3. Mineração</h3><p>A atividade mineradora causa impactos severos, como a degradação do solo, a poluição de rios (muitas vezes por mercúrio e outros metais pesados) e a destruição irreversível de habitats.</p><div class="threat-impact"><strong>Impactos:</strong> Poluição aquática, degradação do solo, destruição de habitats</div></div>
+            <div class="threat-card" data-threat="desertificacao"><div class="threat-icon">🏜️</div><h3>4. Desertificação</h3><p>A desertificação é um processo de degradação da terra que leva à perda de sua produtividade e biodiversidade. É frequentemente acelerada por práticas agrícolas inadequadas e mudanças climáticas.</p><div class="threat-impact"><strong>Impactos:</strong> Perda de produtividade, áreas inóspitas, degradação da terra</div></div>
+            <div class="threat-card" data-threat="caca-pesca"><div class="threat-icon">🐟</div><h3>5. Caça Ilegal e Pesca Predatória</h3><p>A caça ilegal e a pesca predatória são práticas que ameaçam diretamente a fauna brasileira, levando muitas espécies ao risco de extinção. A exploração insustentável desequilibra os ecossistemas.</p><div class="threat-impact"><strong>Impactos:</strong> Extinção de espécies, desequilíbrio populacional</div></div>
+            <div class="threat-card" data-threat="queimadas"><div class="threat-icon">🔥</div><h3>6. Queimadas</h3><p>As queimadas, muitas vezes de origem criminosa ou acidental, são potencializadas por períodos de seca e pelo desmatamento. Elas contribuem para a degradação do solo e a poluição do ar.</p><div class="threat-impact"><strong>Impactos:</strong> Poluição do ar, degradação do solo, perda de biodiversidade</div></div>
+            <div class="threat-card" data-threat="poluicao"><div class="threat-icon">🏭</div><h3>7. Poluição</h3><p>A poluição das águas, solos e ar impacta negativamente a saúde dos ecossistemas e das espécies, comprometendo a qualidade de vida e a sobrevivência de diversas formas de vida.</p><div class="threat-impact"><strong>Impactos:</strong> Contaminação ambiental, problemas de saúde, morte de espécies</div></div>
+            <div class="threat-card" data-threat="mudancas-climaticas"><div class="threat-icon">🌡️</div><h3>8. Mudanças Climáticas</h3><p>As mudanças climáticas globais alteram a distribuição geográfica das espécies e intensificam eventos extremos, como secas prolongadas e inundações, afetando a biodiversidade.</p><div class="threat-impact"><strong>Impactos:</strong> Eventos extremos, alteração de habitats, migração forçada</div></div>
+            <div class="threat-card" data-threat="especies-invasoras"><div class="threat-icon">🦎</div><h3>9. Espécies Exóticas Invasoras</h3><p>A introdução de espécies exóticas invasoras representa uma séria ameaça. Elas podem competir com espécies nativas por recursos, predá-las ou alterar o habitat, causando desequilíbrio ecológico.</p><div class="threat-impact"><strong>Impactos:</strong> Competição por recursos, predação, desequilíbrio ecológico</div></div>
+        </div>
+
+        <div class="call-to-action">
+          <h3>🌱 Como Podemos Ajudar? 🌱</h3>
+          <p>
+            A conservação da biodiversidade brasileira é responsabilidade de todos. Pequenas ações individuais, quando somadas, podem fazer uma grande diferença na proteção de nossos ecossistemas.
+          </p>
+          <div class="action-buttons">
+            <a href="como_ajudar.html" class="btn-primary">Saiba Como Ajudar</a>
+            <a href="biomas.html" class="btn-secondary">Conheça os Biomas</a>
+          </div>
+        </div>
+
+        <p class="source">
+          📚 Fonte: <a href="https://www.letrasambientais.org.br/posts/biomas-do-brasil:-conheca-as-9-principais-ameacas" target="_blank">Letras Ambientais - Biomas do Brasil: conheça as 9 principais ameaças</a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2025 Francisco Gustavo, Francisco Cândido, Noan Guedes &amp; Davi César
+      </p>
+    </footer>
+    
+    <button
+      id="backToTopBtn"
+      title="Voltar ao Topo"
+      aria-label="Voltar ao topo da página"
+    ></button>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

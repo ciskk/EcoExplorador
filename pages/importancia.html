@@ -5,179 +5,122 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Importância da Biodiversidade - EcoExplorador</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
   <link rel="stylesheet" href="../style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-<style>
-  /* ---------- ESTILO GERAL ---------- */
-:root {
-  --verde: #2e7d32;
-  --verde-claro: #66bb6a;
-  --marrom: #4e342e;
-  --branco: #ffffff;
-  --cinza-claro: #f4f4f4;
-  --sombra: rgba(0, 0, 0, 0.1);
-  --fonte-titulo: 'Poppins', sans-serif;
-  --fonte-texto: 'Open Sans', sans-serif;
-}
 
-
-
-/* ---------- CONTEÚDO PRINCIPAL ---------- */
-.container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-}
-
-.card {
-  background-color: var(--branco);
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 10px var(--sombra);
-  transition: transform 0.2s ease;
-  margin-top: 100px;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-h2, h3 {
-  font-family: var(--fonte-titulo);
-  color: var(--verde);
-  margin-bottom: 0.8rem;
-}
-
-h2 {
-  border-bottom: 3px solid var(--verde-claro);
-  display: inline-block;
-  padding-bottom: 0.3rem;
-}
-
-ul {
-  margin: 1rem 0 1rem 1.5rem;
-  list-style-type: square;
-}
-
-li {
-  margin-bottom: 0.8rem;
-}
-
-</style>
 <body>
+  <div class="floating-leaves">
+    <div class="leaf">🍃</div>
+    <div class="leaf">🌿</div>
+    <div class="leaf">🍂</div>
+    <div class="leaf">🌱</div>
+    <div class="leaf">🍃</div>
+    <div class="leaf">🌿</div>
+  </div>
+
   <div id="stickyHeader">
     <header>
       <div class="header-container">
-        <img src="/images/layout/logo.ico" alt="Logo EcoExplorador" class="header-logo" />
+        <a href="../index.html" aria-label="Página Inicial do EcoExplorador">
+          <img src="../images/layout/logo.ico" alt="Logo EcoExplorador" class="header-logo" />
+        </a>
         <h1>EcoExplorador - Biodiversidade Brasileira</h1>
       </div>
     </header>
     <div class="nav-container">
-      <button id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
-        <i class="fas fa-bars" aria-hidden="true"></i>
-        <span>Menu</span>
-      </button>
+      <a href="#" id="menu-toggle">☰ Menu</a>
       <nav id="main-nav" aria-label="Navegação Principal">
         <a href="../index.html">Início</a>
-        <a href="definição_da_fauna_e_flora.html">Definição da Fauna</a>
-        <a href="fauna_e_flora.html">Fauna e flora</a>
-        <a href="ameaças.html">Ameaças</a>
+        <a href="definicao-fauna-flora.html">Definição da Fauna e Flora</a>
+        <a href="fauna_e_flora.html">Fauna e Flora</a>
+        <a href="importancia.html" class="active">Importância</a>
+        <a href="ameacas.html">Ameaças</a>
         <a href="desenvolvimento.html">Sustentabilidade</a>
         <a href="biomas.html">Biomas</a>
         <a href="como_ajudar.html">Como Ajudar</a>
-        <a href="grafico_vegetação.html">Gráfico Interativo</a>
-        <a href="conclusão.html">Conclusão</a>
+        <a href="grafico-vegetacao.html">Gráfico Interativo</a>
+        <a href="conclusao.html">Conclusão</a>
       </nav>
     </div>
   </div>
 
   <main class="container">
-  <section id="importancia">
-    <!-- Card 1: Introdução -->
-    <div class="card">
+    <section id="importancia">
       <h2>A Importância da Biodiversidade</h2>
-      <p>
-        A biodiversidade, ou diversidade biológica, é a variedade de vida no
-        planeta, desde microrganismos até grandes mamíferos e ecossistemas
-        inteiros. A sua preservação é crucial para a manutenção da vida na
-        Terra, incluindo a nossa.
-      </p>
-    </div>
+      <div class="card" style="padding: 20px; margin-bottom: 20px;">
+        <p>
+          A biodiversidade, ou diversidade biológica, é a variedade de vida no
+          planeta, desde microrganismos até grandes mamíferos e ecossistemas
+          inteiros. A sua preservação é crucial para a manutenção da vida na
+          Terra, incluindo a nossa.
+        </p>
+      </div>
 
-    <!-- Card 2: Serviços Ecossistêmicos -->
-    <div class="card">
-      <h3>Serviços Ecossistêmicos</h3>
-      <p>
-        Os ecossistemas saudáveis fornecem uma série de "serviços" gratuitos e
-        essenciais para a humanidade:
-      </p>
-      <ul>
-        <li>
-          <strong>Regulação do Clima:</strong> Florestas como a Amazônia
-          absorvem grandes quantidades de dióxido de carbono (CO₂), ajudando a
-          estabilizar o clima global.
-        </li>
-        <li>
-          <strong>Recursos Hídricos:</strong> A vegetação protege nascentes e
-          margens de rios, garantindo a qualidade e a quantidade de água
-          disponível.
-        </li>
-        <li>
-          <strong>Polinização:</strong> Insetos, aves e morcegos são
-          responsáveis pela polinização de grande parte das culturas
-          agrícolas, garantindo a produção de alimentos.
-        </li>
-        <li>
-          <strong>Controle de Pragas:</strong> Predadores naturais ajudam a
-          controlar populações de insetos e outros organismos que podem se
-          tornar pragas na agricultura.
-        </li>
-      </ul>
-    </div>
+      <div class="card" style="padding: 20px; margin-bottom: 20px;">
+        <h3>Serviços Ecossistêmicos</h3>
+        <p>
+          Os ecossistemas saudáveis fornecem uma série de "serviços" gratuitos e
+          essenciais para a humanidade:
+        </p>
+        <ul>
+          <li>
+            <strong>Regulação do Clima:</strong> Florestas como a Amazônia
+            absorvem grandes quantidades de dióxido de carbono (CO₂), ajudando a
+            estabilizar o clima global.
+          </li>
+          <li>
+            <strong>Recursos Hídricos:</strong> A vegetação protege nascentes e
+            margens de rios, garantindo a qualidade e a quantidade de água
+            disponível.
+          </li>
+          <li>
+            <strong>Polinização:</strong> Insetos, aves e morcegos são
+            responsáveis pela polinização de grande parte das culturas
+            agrícolas, garantindo a produção de alimentos.
+          </li>
+          <li>
+            <strong>Controle de Pragas:</strong> Predadores naturais ajudam a
+            controlar populações de insetos e outros organismos que podem se
+            tornar pragas na agricultura.
+          </li>
+        </ul>
+      </div>
 
-    <!-- Card 3: Recursos para a Sociedade -->
-    <div class="card">
-      <h3>Recursos para a Sociedade</h3>
-      <p>
-        A biodiversidade é uma fonte inesgotável de recursos que utilizamos em
-        nosso dia a dia:
-      </p>
-      <ul>
-        <li>
-          <strong>Alimentos:</strong> A variedade de espécies de plantas e
-          animais garante nossa segurança alimentar.
-        </li>
-        <li>
-          <strong>Medicamentos:</strong> Muitos remédios são derivados de
-          compostos encontrados em plantas. A cura para muitas doenças pode
-          estar na natureza.
-        </li>
-        <li>
-          <strong>Matérias-Primas:</strong> Madeira, fibras, óleos e resinas
-          são apenas alguns exemplos de produtos fornecidos pela natureza que
-          movimentam a economia.
-        </li>
-        <li>
-          <strong>Patrimônio Cultural:</strong> A biodiversidade brasileira está
-          ligada a culturas de povos originários e comunidades tradicionais, que
-          detêm saberes valiosos.
-        </li>
-        <li>
-          <strong>Turismo e Ecoturismo:</strong> A riqueza natural do país, que
-          inclui florestas, praias e o Pantanal, é um grande atrativo para o
-          turismo, gerando benefícios econômicos para as comunidades locais.
-        </li>
-      </ul>
-    </div>
-  </section>
-</main>
+      <div class="card" style="padding: 20px;">
+        <h3>Recursos para a Sociedade</h3>
+        <p>
+          A biodiversidade é uma fonte inesgotável de recursos que utilizamos em
+          nosso dia a dia:
+        </p>
+        <ul>
+          <li>
+            <strong>Alimentos:</strong> A variedade de espécies de plantas e
+            animais garante nossa segurança alimentar.
+          </li>
+          <li>
+            <strong>Medicamentos:</strong> Muitos remédios são derivados de
+            compostos encontrados em plantas. A cura para muitas doenças pode
+            estar na natureza.
+          </li>
+          <li>
+            <strong>Matérias-Primas:</strong> Madeira, fibras, óleos e resinas
+            são apenas alguns exemplos de produtos fornecidos pela natureza que
+            movimentam a economia.
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
-<footer>
-  <p>&copy; 2025 EcoExplorador. Todos os direitos reservados.</p>
-</footer>
+  <footer>
+    <p>&copy; 2025 Francisco Gustavo, Francisco Cândido, Noan Guedes &amp; Davi César</p>
+  </footer>
 
-
+  <button id="backToTopBtn" title="Voltar ao Topo" aria-label="Voltar ao topo da página"></button>
   <script src="../script.js"></script>
 </body>
 

@@ -3,79 +3,156 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fauna Brasileira - EcoExplorador</title>
+    <title>Fauna e Flora Brasileira - EcoExplorador</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <link rel="stylesheet" href="../style.css" />
   </head>
 
   <body>
+    <div class="floating-leaves">
+      <div class="leaf">🍃</div>
+      <div class="leaf">🌿</div>
+      <div class="leaf">🍂</div>
+      <div class="leaf">🌱</div>
+      <div class="leaf">🍃</div>
+      <div class="leaf">🌿</div>
+    </div>
+
+    <div id="stickyHeader">
+      <header>
+        <div class="header-container">
+          <a href="../index.html" aria-label="Página Inicial do EcoExplorador">
+            <img src="../images/layout/logo.ico" alt="Logo EcoExplorador" class="header-logo" />
+          </a>
+          <h1>EcoExplorador - Biodiversidade Brasileira</h1>
+        </div>
+      </header>
+      <div class="nav-container">
+        <a href="#" id="menu-toggle">☰ Menu</a>
+        <nav id="main-nav">
+          <a href="../index.html">Início</a>
+          <a href="definicao-fauna-flora.html">Definição da Fauna e Flora</a>
+          <a href="fauna_e_flora.html" class="active">Fauna e Flora</a>
+          <a href="importancia.html">Importância</a>
+          <a href="ameacas.html">Ameaças</a>
+          <a href="desenvolvimento.html">Sustentabilidade</a>
+          <a href="biomas.html">Biomas</a>
+          <a href="como_ajudar.html">Como Ajudar</a>
+          <a href="grafico-vegetacao.html">Gráfico Interativo</a>
+          <a href="conclusao.html">Conclusão</a>
+        </nav>
+      </div>
+    </div>
+
     <main class="container">
-      <section id="fauna">
-        <h2>Fauna Brasileira</h2>
-        <figure>
-          <img
-            src="../images/fauna/arara-azul.jpg"
-            alt="Arara-azul em habitat natural"
-            class="section-image img-responsive"
-            loading="lazy"
-          />
-          <figcaption>Arara azul em um cenário natural.</figcaption>
-        </figure>
+      <section id="fauna-flora">
+        <h2>Exemplos da Fauna e Flora Brasileira</h2>
         <p>
-          O Brasil possui uma incrível diversidade biológica, abrigando
-          mamíferos, aves, répteis, anfíbios e peixes, muitos deles endêmicos e
-          ameaçados. A preservação desses animais é fundamental para o
-          equilíbrio dos ecossistemas.
+          O Brasil é um país de dimensões continentais com uma das maiores biodiversidades do mundo. Conheça alguns dos exemplos mais emblemáticos que compõem nossos ricos ecossistemas.
         </p>
+
+        <h3>Fauna</h3>
         <div class="card-container">
           <div class="card">
             <img
               src="../images/fauna/onca-pintada.jpg"
-              alt="Onça-pintada – imagem ilustrativa"
+              alt="Onça-pintada"
               class="img-responsive"
               loading="lazy"
             />
             <div class="card-content">
-              <h4>Onça-pintada</h4>
+              <h4>Onça-pintada (Panthera onca)</h4>
               <p>
-                A onça-pintada (Panthera onca) é o maior felino das Américas e
-                desempenha papel crucial na manutenção do equilíbrio ecológico.
+                O maior felino das Américas, crucial para o equilíbrio ecológico como predador de topo de cadeia.
               </p>
             </div>
           </div>
           <div class="card">
             <img
               src="../images/fauna/mico-leao-dourado.jpg"
-              alt="Mico-leão-dourado – imagem ilustrativa"
+              alt="Mico-leão-dourado"
               class="img-responsive"
               loading="lazy"
             />
             <div class="card-content">
-              <h4>Mico-leão-dourado</h4>
+              <h4>Mico-leão-dourado (Leontopithecus rosalia)</h4>
               <p>
-                Endêmico da Mata Atlântica, o mico-leão-dourado (Leontopithecus
-                rosalia) é uma espécie ameaçada cuja conservação é prioridade.
+                Endêmico da Mata Atlântica, este primata é um símbolo da luta pela conservação de espécies ameaçadas.
               </p>
             </div>
           </div>
           <div class="card">
             <img
               src="../images/fauna/tucano.jpg"
-              alt="Tucano – fotografia ilustrativa"
+              alt="Tucano"
               class="img-responsive"
               loading="lazy"
             />
             <div class="card-content">
-              <h4>Tucano</h4>
+              <h4>Tucano-toco (Ramphastos toco)</h4>
               <p>
-                O tucano (Ramphastos toco) é símbolo das florestas tropicais e
-                desempenha papel importante na dispersão de sementes.
+                Famoso por seu bico grande e colorido, o tucano desempenha um papel vital na dispersão de sementes.
               </p>
             </div>
           </div>
         </div>
+
+        <h3 style="margin-top: 50px;">Flora</h3>
+        <div class="card-container">
+            <div class="card">
+              <img
+                src="../images/fauna/ipe.webp"
+                alt="Ipê-amarelo"
+                class="img-responsive"
+                loading="lazy"
+              />
+              <div class="card-content">
+                <h4>Ipê-amarelo (Handroanthus albus)</h4>
+                <p>
+                  Considerada a árvore-símbolo do Brasil, sua floração exuberante colore as paisagens no inverno.
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="../images/fauna/vitoria-regia.jpg" 
+                alt="Vitória-régia"
+                class="img-responsive"
+                loading="lazy"
+              />
+              <div class="card-content">
+                <h4>Vitória-régia (Victoria amazonica)</h4>
+                <p>
+                  Planta aquática típica da Bacia Amazônica, famosa por suas folhas circulares gigantes que flutuam na água.
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="../images/fauna/pau-brasil.jpg"
+                alt="Pau-brasil"
+                class="img-responsive"
+                loading="lazy"
+              />
+              <div class="card-content">
+                <h4>Pau-brasil (Paubrasilia echinata)</h4>
+                <p>
+                  Árvore que deu nome ao nosso país, foi intensamente explorada por sua madeira de cor avermelhada.
+                </p>
+              </div>
+            </div>
+          </div>
       </section>
     </main>
 
+    <footer>
+      <p>&copy; 2025 Francisco Gustavo, Francisco Cândido, Noan Guedes &amp; Davi César</p>
+    </footer>
+
+    <button id="backToTopBtn" title="Voltar ao Topo" aria-label="Voltar ao topo da página"></button>
     <script src="../script.js"></script>
   </body>
 </html>

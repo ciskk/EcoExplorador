@@ -4,48 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ECO EXPLORADOR</title>
-
-    <meta
-      name="description"
-      content="Site educativo sobre a fauna e biodiversidade brasileira, com informações sobre ameaças ambientais e desenvolvimento sustentável."
-    />
-    <meta name="author" content="EcoExplorador" />
-    <meta
-      name="keywords"
-      content="fauna, biodiversidade, biomas, meio ambiente, Brasil, sustentabilidade, world environment day"
-    />
-    <meta name="theme-color" content="#F8F7F2" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ecoexplorador.com.br/" />
-    <meta
-      property="og:title"
-      content="EcoExplorador - Biodiversidade Brasileira"
-    />
-    <meta
-      property="og:description"
-      content="Um portal educativo sobre a rica biodiversidade, os biomas e os desafios ambientais do Brasil."
-    />
-    <meta
-      property="og:image"
-      content="https://ecoexplorador.com.br/images/social-preview.jpg"
-    />
-
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://ecoexplorador.com.br/" />
-    <meta
-      property="twitter:title"
-      content="EcoExplorador - Biodiversidade Brasileira"
-    />
-    <meta
-      property="twitter:description"
-      content="Um portal educativo sobre a rica biodiversidade, os biomas e os desafios ambientais do Brasil."
-    />
-    <meta
-      property="twitter:image"
-      content="https://ecoexplorador.com.br/images/social-preview.jpg"
-    />
-
     <link rel="icon" type="image/x-icon" href="images/layout/logo.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -61,37 +19,37 @@
   </head>
 
   <body>
+    <div class="floating-leaves">
+      <div class="leaf">🍃</div>
+      <div class="leaf">🌿</div>
+      <div class="leaf">🍂</div>
+      <div class="leaf">🌱</div>
+      <div class="leaf">🍃</div>
+      <div class="leaf">🌿</div>
+    </div>
+
     <div id="stickyHeader">
       <header>
         <div class="header-container">
-          <img
-            src="images/layout/logo.ico"
-            alt="Logo EcoExplorador"
-            class="header-logo"
-          />
+          <a href="index.html" aria-label="Página Inicial do EcoExplorador">
+            <img src="images/layout/logo.ico" alt="Logo EcoExplorador" class="header-logo" />
+          </a>
           <h1>EcoExplorador - Biodiversidade Brasileira</h1>
         </div>
       </header>
       <div class="nav-container">
-        <button
-          id="menu-toggle"
-          aria-label="Abrir menu"
-          aria-expanded="false"
-          aria-controls="main-nav"
-        >
-          <i class="fas fa-bars" aria-hidden="true"></i>
-          <span>Menu</span>
-        </button>
-        <nav id="main-nav" aria-label="Navegação Principal">
-          <a href="pages/definição_da_fauna_e_flora.html">Definição da Fauna</a>
-          <a href="pages/fauna_e_flora.html">Fauna</a>
+        <a href="#" id="menu-toggle">☰ Menu</a>
+        <nav id="main-nav">
+          <a href="index.html" class="active">Início</a>
+          <a href="pages/definicao-fauna-flora.html">Definição da Fauna e Flora</a>
+          <a href="pages/fauna_e_flora.html">Fauna e Flora</a>
           <a href="pages/importancia.html">Importância</a>
-          <a href="pages/ameaças.html">Ameaças</a>
+          <a href="pages/ameacas.html">Ameaças</a>
           <a href="pages/desenvolvimento.html">Sustentabilidade</a>
           <a href="pages/biomas.html">Biomas</a>
           <a href="pages/como_ajudar.html">Como Ajudar</a>
-          <a href="pages/grafico_vegetação.html">Gráfico Interativo</a>
-          <a href="pages/conclusão.html">Conclusão</a>
+          <a href="pages/grafico-vegetacao.html">Gráfico Interativo</a>
+          <a href="pages/conclusao.html">Conclusão</a>
         </nav>
       </div>
     </div>
@@ -118,19 +76,10 @@
       </p>
     </footer>
 
-    <div
-      id="biomeModal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modalTitle"
-      aria-describedby="modalText"
-      style="display: none"
-    ></div>
     <button
       id="backToTopBtn"
       title="Voltar ao Topo"
       aria-label="Voltar ao topo da página"
-      style="display: none"
     ></button>
 
     <script src="script.js"></script>
