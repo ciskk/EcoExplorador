@@ -3,7 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Importância da Biodiversidade - EcoExplorador</title>
+    <title>EcoExplorador - Definição da Fauna e Flora</title>
+    <meta
+      name="description"
+      content="Entenda o que é fauna e flora, sua importância e como esses elementos compõem a biodiversidade brasileira."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -12,6 +20,7 @@
   </head>
 
   <body>
+    <!-- Folhas flutuantes para decoração -->
     <div class="floating-leaves">
       <div class="leaf">🍃</div>
       <div class="leaf">🌿</div>
@@ -21,114 +30,253 @@
       <div class="leaf">🌿</div>
     </div>
 
-    <div id="stickyHeader">
-      <header>
-        <div class="header-container">
-          <a href="../index.html" aria-label="Página Inicial do EcoExplorador">
-            <img
-              src="../images/layout/logo.ico"
-              alt="Logo EcoExplorador"
-              class="header-logo"
-            />
-          </a>
-          <h1>EcoExplorador - Biodiversidade Brasileira</h1>
-        </div>
-      </header>
-      <div class="nav-container">
-        <a href="#" id="menu-toggle">☰ Menu</a>
-        <nav id="main-nav" aria-label="Navegação Principal">
-          <a href="../index.html">Início</a>
-          <a href="definicao-fauna-flora.html">Definição da Fauna e Flora</a>
-          <a href="fauna_e_flora.html">Fauna e Flora</a>
-          <a href="importancia.html" class="active">Importância</a>
-          <a href="ameacas.html">Ameaças</a>
-          <a href="desenvolvimento.html">Sustentabilidade</a>
-          <a href="biomas.html">Biomas</a>
-          <a href="como_ajudar.html">Como Ajudar</a>
-          <a href="grafico-vegetacao.html">Gráfico Interativo</a>
-          <a href="conclusao.html">Conclusão</a>
-        </nav>
-      </div>
-    </div>
+    <!-- NAVBAR INJETADA VIA JAVASCRIPT -->
+    <div id="stickyHeader"></div>
 
     <main class="container">
-      <section id="importancia">
-        <h2>A Importância da Biodiversidade</h2>
-        <div class="card" style="padding: 20px; margin-bottom: 20px">
+      <section id="definicao">
+        <h2>🌿 O que é Fauna e Flora? 🌸</h2>
+
+        <!-- Galeria de Imagens (Fauna) -->
+        <div class="image-gallery reveal">
+          <div class="gallery-item" data-modal="modal1">
+            <img
+              src="../images/fauna/fauna-flora.jpg"
+              alt="Arara Azul representando a Fauna Brasileira"
+            />
+            <div class="gallery-overlay">
+              <strong>Fauna Brasileira</strong>
+            </div>
+          </div>
+          <div class="gallery-item" data-modal="modal2">
+            <img
+              src="../images/fauna/onca.png"
+              alt="Onça-pintada representando a Biodiversidade Nacional"
+            />
+            <div class="gallery-overlay">
+              <strong>Biodiversidade Nacional</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards Explicativos -->
+        <div class="info-cards reveal">
+          <div class="info-card">
+            <span class="info-card-icon">🐾</span>
+            <h3>Fauna: O Reino Animal</h3>
+            <p>
+              O termo <strong>Fauna</strong> refere-se ao conjunto de todas as
+              espécies de animais que vivem em uma determinada região ou período
+              de tempo. Isso inclui desde os menores insetos até os maiores
+              mamíferos. A fauna de um local é resultado de milhões de anos de
+              evolução e adaptação às condições específicas daquele ambiente,
+              como clima, relevo e disponibilidade de alimentos.
+            </p>
+            <p>
+              Os animais desempenham papéis cruciais nos ecossistemas, atuando
+              como polinizadores, dispersores de sementes, controladores de
+              populações e parte essencial da cadeia alimentar.
+            </p>
+          </div>
+          <div class="info-card">
+            <span class="info-card-icon">🌼</span>
+            <h3>Flora: O Reino Vegetal</h3>
+            <p>
+              <strong>Flora</strong> é o termo utilizado para descrever o
+              conjunto de todas as espécies de plantas de uma determinada área
+              ou período. A flora abrange desde musgos e samambaias até árvores
+              de grande porte e flores coloridas. As plantas são a base da
+              maioria dos ecossistemas terrestres, responsáveis pela produção de
+              oxigênio através da fotossíntese e por fornecerem alimento e
+              abrigo à fauna.
+            </p>
+          </div>
+        </div>
+
+        <!-- Galeria de Imagens (Flora) -->
+        <div class="image-gallery reveal">
+          <div class="gallery-item" data-modal="modal3">
+            <img src="../images/fauna/ipe.webp" alt="Ipê-Amarelo" />
+            <div class="gallery-overlay">
+              <strong>Ipê-Amarelo</strong>
+            </div>
+          </div>
+          <div class="gallery-item" data-modal="modal4">
+            <img src="../images/fauna/quaresmeira.jpg" alt="Quaresmeira" />
+            <div class="gallery-overlay">
+              <strong>Plantas Nativas</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seção de Interconexão -->
+        <div class="interconnection-section reveal">
+          <h3>🌎 A Interconexão Vital</h3>
           <p>
-            A biodiversidade, ou diversidade biológica, é a variedade de vida no
-            planeta, desde microrganismos até grandes mamíferos e ecossistemas
-            inteiros. A sua preservação é crucial para a manutenção da vida na
-            Terra, incluindo a nossa.
+            Fauna e flora não existem isoladamente. Elas estão em constante
+            interação, formando uma teia complexa de relações ecológicas. A
+            saúde de um ecossistema depende diretamente do equilíbrio entre
+            animais e plantas. A perda de uma única espécie pode causar um
+            efeito cascata, desestabilizando todo o ambiente natural.
           </p>
         </div>
 
-        <div class="card" style="padding: 20px; margin-bottom: 20px">
-          <h3>Serviços Ecossistêmicos</h3>
+        <!-- Chamada para Ação -->
+        <div class="call-to-action">
+          <h3>🌱 Quer entender por que isso é importante?</h3>
           <p>
-            Os ecossistemas saudáveis fornecem uma série de "serviços" gratuitos
-            e essenciais para a humanidade:
+            Explore a próxima seção e descubra a importância da biodiversidade e
+            da preservação dos ecossistemas brasileiros.
           </p>
-          <ul>
-            <li>
-              <strong>Regulação do Clima:</strong> Florestas como a Amazônia
-              absorvem grandes quantidades de dióxido de carbono (CO₂), ajudando
-              a estabilizar o clima global.
-            </li>
-            <li>
-              <strong>Recursos Hídricos:</strong> A vegetação protege nascentes
-              e margens de rios, garantindo a qualidade e a quantidade de água
-              disponível.
-            </li>
-            <li>
-              <strong>Polinização:</strong> Insetos, aves e morcegos são
-              responsáveis pela polinização de grande parte das culturas
-              agrícolas, garantindo a produção de alimentos.
-            </li>
-            <li>
-              <strong>Controle de Pragas:</strong> Predadores naturais ajudam a
-              controlar populações de insetos e outros organismos que podem se
-              tornar pragas na agricultura.
-            </li>
-          </ul>
-        </div>
-
-        <div class="card" style="padding: 20px">
-          <h3>Recursos para a Sociedade</h3>
-          <p>
-            A biodiversidade é uma fonte inesgotável de recursos que utilizamos
-            em nosso dia a dia:
-          </p>
-          <ul>
-            <li>
-              <strong>Alimentos:</strong> A variedade de espécies de plantas e
-              animais garante nossa segurança alimentar.
-            </li>
-            <li>
-              <strong>Medicamentos:</strong> Muitos remédios são derivados de
-              compostos encontrados em plantas. A cura para muitas doenças pode
-              estar na natureza.
-            </li>
-            <li>
-              <strong>Matérias-Primas:</strong> Madeira, fibras, óleos e resinas
-              são apenas alguns exemplos de produtos fornecidos pela natureza
-              que movimentam a economia.
-            </li>
-            <li>
-              <strong>Patrimônio Cultural:</strong> A biodiversidade brasileira
-              está ligada a culturas de povos originários e comunidades
-              tradicionais, que detêm saberes valiosos.
-            </li>
-            <li>
-              <strong>Turismo e Ecoturismo:</strong> A riqueza natural do país,
-              que inclui florestas, praias e o Pantanal, é um grande atrativo
-              para o turismo, gerando benefícios econômicos para as comunidades
-              locais.
-            </li>
-          </ul>
+          <div class="action-buttons">
+            <a href="importancia.html" class="btn-primary">Ver Importância</a>
+            <a href="fauna_e_flora.html" class="btn-secondary"
+              >Conhecer Exemplos</a
+            >
+          </div>
         </div>
       </section>
     </main>
+
+    <!-- MODAIS (Janelas que abrem ao clicar nas imagens) -->
+    
+    <!-- Modal 1: Arara-Azul -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Arara-Azul</h2>
+          <button class="close-modal" aria-label="Fechar">&times;</button>
+        </div>
+        <div class="modal-body">
+          <img
+            src="../images/fauna/fauna-flora.jpg"
+            alt="Arara-Azul"
+            class="modal-image"
+          />
+          <h3>🦜 Arara-Azul</h3>
+          <p>
+            A <strong>arara-azul-grande</strong> (Anodorhynchus hyacinthinus) é
+            a maior entre os psitacídeos, podendo atingir até 100 centímetros de
+            comprimento da cabeça à cauda.
+          </p>
+          <p>
+            <strong>Habitat:</strong> Encontrada no Pantanal, Cerrado e Amazônia
+            brasileira. Habita diferentes formações vegetais, desde savanas até
+            ambientes de floresta.
+          </p>
+          <p>
+            <strong>Características:</strong> Sua plumagem azul vibrante e o
+            anel amarelo ao redor dos olhos a tornam uma das aves mais admiradas
+            do mundo. Pode viver de 30 a 50 anos em vida livre e até 50 anos ou
+            mais em cativeiro.
+          </p>
+          <p>
+            <strong>Conservação:</strong> Considerada quase ameaçada pela perda
+            de habitat e captura ilegal para o comércio de animais silvestres.
+            Programas de conservação têm ajudado a recuperar suas populações.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Onça-Pintada -->
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Onça-Pintada</h2>
+          <button class="close-modal" aria-label="Fechar">&times;</button>
+        </div>
+        <div class="modal-body">
+          <img
+            src="../images/fauna/onca.png"
+            alt="Onça-Pintada"
+            class="modal-image"
+          />
+          <h3>Onça-Pintada</h3>
+          <p>
+            O maior felino das Américas, predador de topo que controla
+            populações e mantém o equilíbrio ecológico. Presente em diversos
+            biomas brasileiros, é símbolo de força e conservação.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: Ipê-Amarelo -->
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Ipê-Amarelo</h2>
+          <button class="close-modal" aria-label="Fechar">&times;</button>
+        </div>
+        <div class="modal-body">
+          <img
+            src="../images/fauna/ipe.webp"
+            alt="Ipê-Amarelo"
+            class="modal-image"
+          />
+          <h3>Ipê-Amarelo</h3>
+          <p>
+            O <strong>ipê-amarelo</strong> (Handroanthus albus) é considerado a
+            árvore nacional do Brasil. Durante a floração, transforma paisagens
+            inteiras com suas flores amarelas vibrantes, criando um espetáculo
+            natural de rara beleza.
+          </p>
+          <p>
+            <strong>Habitat:</strong> O ipê-amarelo ocorre naturalmente em
+            diversos biomas brasileiros, incluindo Cerrado, Mata Atlântica e
+            áreas de transição. Adapta-se bem a diferentes tipos de solo e
+            climas, sendo amplamente utilizado na arborização urbana.
+          </p>
+          <p>
+            <strong>Importância Ecológica:</strong> Durante a floração, as
+            flores do ipê-amarelo atraem diversos polinizadores, especialmente
+            abelhas e beija-flores. A árvore fornece abrigo e alimento para
+            diversas espécies de aves, insetos e pequenos mamíferos.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4: Plantas Nativas -->
+    <div id="modal4" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Plantas Nativas Brasileiras</h2>
+          <button class="close-modal" aria-label="Fechar">&times;</button>
+        </div>
+        <div class="modal-body">
+          <img
+            src="../images/fauna/quaresmeira.jpg"
+            alt="Quaresmeira"
+            class="modal-image"
+          />
+          <h3>Diversidade da Flora Nativa</h3>
+          <p>
+            O Brasil possui uma das floras mais ricas do mundo, com uma vasta
+            gama de espécies que contribuem para a beleza e o equilíbrio dos
+            ecossistemas. Esta imagem destaca a diversidade de plantas nativas,
+            incluindo a exuberância de folhagens e a delicadeza de flores como a
+            Quaresmeira.
+          </p>
+          <h3>🌸 Quaresmeira (Tibouchina granulosa)</h3>
+          <p>
+            A Quaresmeira é uma árvore nativa da Mata Atlântica, conhecida por
+            suas flores roxas ou rosas vibrantes que florescem principalmente
+            durante a Quaresma. É amplamente utilizada no paisagismo devido à
+            sua beleza e floração abundante, atraindo polinizadores como abelhas
+            e beija-flores.
+          </p>
+          <h3>🌱 Importância da Flora Nativa</h3>
+          <p>
+            As plantas nativas são cruciais para a conservação da
+            biodiversidade, sustentando a cadeia alimentar e fornecendo serviços
+            ecossistêmicos vitais, como a regulação do clima e a purificação do
+            ar.
+          </p>
+        </div>
+      </div>
+    </div>
 
     <footer>
       <p>
@@ -142,6 +290,9 @@
       title="Voltar ao Topo"
       aria-label="Voltar ao topo da página"
     ></button>
+
+    <!-- SCRIPTS OBRIGATÓRIOS -->
+    <script src="../navbar.js"></script>
     <script src="../script.js"></script>
   </body>
 </html>

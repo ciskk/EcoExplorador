@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comunidade - EcoExplorador</title>
+    <link rel="icon" type="image/x-icon" href="../images/layout/logo.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      /* Estilos específicos da comunidade... (Mantive igual ao anterior) */
+      .auth-container { background: linear-gradient(135deg, #f0f7f0 0%, #ffffff 100%); padding: 30px; border-radius: 15px; border-left: 5px solid #2c5f2d; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto; }
+      .form-group { margin-bottom: 15px; }
+      .form-control { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-family: 'Poppins', sans-serif; }
+      .message-card { background: white; border-radius: 10px; padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #4caf50; animation: fadeIn 0.5s ease; position: relative; }
+      .message-meta { font-size: 0.85em; color: #777; margin-top: 10px; border-top: 1px solid #eee; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; }
+      .delete-btn { color: #d32f2f; background: none; border: none; cursor: pointer; font-size: 0.9em; padding: 5px 10px; border-radius: 5px; transition: background 0.3s; }
+      .delete-btn:hover { background: #ffebee; }
+      .user-badge { background-color: #e8f5e9; color: #2c5f2d; padding: 2px 8px; border-radius: 12px; font-weight: 600; font-size: 0.8em; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+  </head>
+
+  <body>
+    <div class="floating-leaves">
+      <div class="leaf">🍃</div>
+      <div class="leaf">🌿</div>
+      <div class="leaf">🍂</div>
+      <div class="leaf">🌱</div>
+      <div class="leaf">🍃</div>
+      <div class="leaf">🌿</div>
+    </div>
+
+    <!-- NAVBAR SERÁ INJETADA AQUI -->
+    <div id="stickyHeader"></div>
+
+    <main class="container">
+      <section id="comunidade-intro">
+        <h2>Mural da Comunidade 🌍</h2>
+        <p style="text-align: center;">Compartilhe suas ideias, dúvidas ou dicas sobre a preservação da nossa biodiversidade.</p>
+        
+        <div id="auth-panel" class="auth-container">
+          <h3 style="text-align: center; color: #2c5f2d; margin-top: 0;">Junte-se à conversa</h3>
+          <div class="form-group"><input id="username" class="form-control" placeholder="Escolha um nome de usuário"></div>
+          <div class="form-group"><input id="password" type="password" class="form-control" placeholder="Sua senha"></div>
+          <div class="action-buttons" style="justify-content: center; gap: 10px;">
+            <button onclick="loginUser()" class="btn-primary" style="margin-top: 0; min-width: 120px;">Entrar</button>
+            <button onclick="registerUser()" class="btn-secondary" style="margin-top: 0; min-width: 120px;">Cadastrar</button>
+          </div>
+          <p id="auth_msg" style="text-align: center; color: #d32f2f; margin-top: 15px; font-size: 0.9em;"></p>
+        </div>
+
+        <div id="user-panel" class="auth-container" style="display: none; max-width: 800px; text-align: left;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <span>Logado como: <strong id="current_user_display" style="color: #4caf50; font-size: 1.2em;"></strong></span>
+            <button onclick="logout()" class="btn-secondary" style="margin: 0; padding: 5px 15px; font-size: 0.9em;">Sair</button>
+          </div>
+          <div class="form-group"><textarea id="message_content" class="form-control" rows="3" placeholder="O que você está pensando sobre a natureza hoje?"></textarea></div>
+          <div style="text-align: right;"><button onclick="postMessage()" class="btn-primary" style="margin: 0;">Publicar Mensagem</button></div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #ddd; margin: 40px 0;">
+        <h3 style="color: #2c5f2d;">Mensagens Recentes</h3>
+        <div id="messages_list"><p style="text-align: center; color: #777;">Carregando mensagens...</p></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Francisco Gustavo, Francisco Cândido, Noan Guedes, Davi César, João Pedro, Luis Felipe, João Kelvin &amp; Davi Morais</p>
+    </footer>
+
+    <button id="backToTopBtn" title="Voltar ao Topo" aria-label="Voltar ao topo da página"></button>
+    
+    <!-- Scripts -->
+    <script src="../navbar.js"></script> <!-- CAMINHO COM ../ -->
+    <script src="../script.js"></script>
+    
+    <script>
+      // ... (Mesmo código JS de conexão com backend do exemplo anterior) ...
+      const API_URL = "http://localhost:8000";
+      let token = localStorage.getItem('token');
+      let currentUser = localStorage.getItem('user');
+
+      if(token && currentUser) { showUserPanel(currentUser); } else { showAuthPanel(); }
+      loadMessages();
+
+      function showAuthPanel() { document.getElementById('auth-panel').style.display = 'block'; document.getElementById('user-panel').style.display = 'none'; }
+      function showUserPanel(user) { document.getElementById('auth-panel').style.display = 'none'; document.getElementById('user-panel').style.display = 'block'; document.getElementById('current_user_display').innerText = user; }
+
+      async function registerUser(){
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          if(!username || !password) return showMsg("Preencha usuário e senha");
+          try {
+              const res = await fetch(API_URL + "/register", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({username, password}) });
+              if(res.ok){ showMsg("Cadastro realizado com sucesso! Faça login.", "green"); } 
+              else { const err = await res.json(); showMsg(err.detail || "Erro ao cadastrar"); }
+          } catch(e) { showMsg("Erro de conexão."); }
+      }
+
+      async function loginUser(){
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          const form = new URLSearchParams();
+          form.append('username', username); form.append('password', password);
+          try {
+              const res = await fetch(API_URL + "/token", { method: "POST", body: form });
+              if(res.ok){
+                  const data = await res.json();
+                  token = data.access_token;
+                  localStorage.setItem('token', token); localStorage.setItem('user', username);
+                  currentUser = username; showUserPanel(username); loadMessages(); showMsg("");
+              } else { showMsg("Usuário ou senha incorretos."); }
+          } catch(e) { showMsg("Erro de conexão."); }
+      }
+
+      function logout(){ token = null; currentUser = null; localStorage.removeItem('token'); localStorage.removeItem('user'); showAuthPanel(); loadMessages(); }
+
+      async function postMessage(){
+          const content = document.getElementById("message_content").value;
+          if(!content) return;
+          try {
+              const res = await fetch(API_URL + "/messages", { method: "POST", headers: {"Content-Type":"application/json", "Authorization":"Bearer "+token}, body: JSON.stringify({content}) });
+              if(res.ok){ document.getElementById("message_content").value = ""; loadMessages(); } 
+              else { alert("Sessão expirada. Faça login novamente."); logout(); }
+          } catch(e) { console.error(e); }
+      }
+
+      async function loadMessages(){
+          try {
+              const res = await fetch(API_URL + "/messages");
+              const list = await res.json();
+              const container = document.getElementById("messages_list");
+              container.innerHTML = "";
+              if(list.length === 0) { container.innerHTML = "<p style='text-align:center; color:#777;'>Nenhuma mensagem ainda.</p>"; return; }
+              list.forEach(m => {
+                  const div = document.createElement("div"); div.className = "message-card";
+                  let deleteBtn = token ? `<button class="delete-btn" onclick="deleteMessage(${m.id})"><i class="fas fa-trash"></i> Excluir</button>` : "";
+                  const dataFormatada = new Date(m.created_at).toLocaleDateString('pt-BR');
+                  div.innerHTML = `<div style="font-size: 1.1rem; color: #333;">${escapeHtml(m.content)}</div>
+                      <div class="message-meta"><span><i class="fas fa-user-circle" style="color: #4caf50;"></i> <span class="user-badge">Membro #${m.user_id}</span> &nbsp;•&nbsp; ${dataFormatada}</span>${deleteBtn}</div>`;
+                  container.appendChild(div);
+              });
+          } catch(e) { document.getElementById("messages_list").innerHTML = "<p style='text-align:center; color:red;'>Servidor offline.</p>"; }
+      }
+
+      async function deleteMessage(id){
+          if(!confirm("Deseja realmente excluir esta mensagem?")) return;
+          const res = await fetch(API_URL + "/messages/" + id, { method: "DELETE", headers: {"Authorization":"Bearer "+token} });
+          if(res.status === 204) loadMessages(); else { alert("Erro ao excluir."); }
+      }
+      function showMsg(text, color="red"){ const el = document.getElementById("auth_msg"); el.style.color = color; el.innerText = text; }
+      function escapeHtml(text) { if (!text) return ""; return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+    </script>
+  </body>
+</html>
